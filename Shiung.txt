@@ -1,0 +1,6 @@
+== Log 1 == 150720
+
+Hi, Shiung here!
+Testing out the GitHub Synch thingy.
+
+Meeting access denied errors from the direct clone, hence I'm forking it to my repository to try out pull requests!
