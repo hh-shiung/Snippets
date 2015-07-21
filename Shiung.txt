@@ -1,4 +1,4 @@
-== Log 1 == 150720
+150720 == Log 1 ==
 
 Hi, Shiung here!
 Testing out the GitHub Synch thingy.
@@ -6,6 +6,13 @@ Testing out the GitHub Synch thingy.
 Meeting access denied errors from the direct clone, hence I'm forking it to my repository to try out pull requests!
 
 Added in the WIP branch.
-Commited the first commit to Masters.
+Mistakenly committed the first commit to Masters.
 
+Sent a Pull Request.
+Pull Request approved.
 
+150721 == Log 2 ==
+
+Testing out synchronizing updates of the "Original" remote repository to the "Personal" remote repository before getting it down to the "Local" repository.
+
+Seems like the addition of "git remote add <name> <remote_repository_url>" is required to be done locally, pushed remotely, and synched remotely before doing it locally.
