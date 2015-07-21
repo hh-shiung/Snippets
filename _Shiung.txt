@@ -1,4 +1,5 @@
-150720 == Log 1 ==
+150720
+== Log 1 ==
 
 Hi, Shiung here!
 Testing out the GitHub Synch thingy.
@@ -11,8 +12,18 @@ Mistakenly committed the first commit to Masters.
 Sent a Pull Request.
 Pull Request approved.
 
-150721 == Log 2 ==
+150721
+== Log 2 ==
+
+Testing out synchronizing with an update remote "Original" repository.
 
 Testing out synchronizing updates of the "Original" remote repository to the "Personal" remote repository before getting it down to the "Local" repository.
-
 Seems like the addition of "git remote add <name> <remote_repository_url>" is required to be done locally, pushed remotely, and synched remotely before doing it locally.
+
+Things to be added:
+1. "git remote -v" to check current branches available of the local directory (file).
+2. "git remote add <name> <original_remote_repository_URL>" if required. Meaning that only one remote repository listed.
+3. "git fetch <original_remote_repository_NAME>" based on the names listed by "git remote -v" to synchronize the branch.
+4. "git merge <name/branch> <personal_branch>" to merge changes of the "Original" repository branch to the local directory(file).
+5. "git status", "git branch", and "git push" to checkout the changes before updating to the personal GitHub branch.
+>>>>>>> wip
