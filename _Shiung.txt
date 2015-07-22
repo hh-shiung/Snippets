@@ -1,4 +1,5 @@
-== Log 1 == 150720
+150720
+== Log 1 ==
 
 Hi, Shiung here!
 Testing out the GitHub Synch thingy.
@@ -6,6 +7,31 @@ Testing out the GitHub Synch thingy.
 Meeting access denied errors from the direct clone, hence I'm forking it to my repository to try out pull requests!
 
 Added in the WIP branch.
-Commited the first commit to Masters.
+Mistakenly committed the first commit to Masters.
 
+Sent a Pull Request.
+Pull Request approved.
 
+150721
+== Log 2 ==
+
+Testing out synchronizing with an update remote "Original" repository.
+
+Testing out synchronizing updates of the "Original" remote repository to the "Personal" remote repository before getting it down to the "Local" repository.
+Seems like the addition of "git remote add <name> <remote_repository_url>" is required to be done locally, pushed remotely, and synched remotely before doing it locally.
+
+Things to be added:
+1. "git remote -v" to check current branches available of the local directory (file).
+2. "git remote add <name> <original_remote_repository_URL>" if required. Meaning that only one remote repository listed.
+3. "git fetch <original_remote_repository_NAME>" based on the names listed by "git remote -v" to synchronize the branch.
+4. "git merge <name/branch> <personal_wip_branch>" to merge changes of the "Original" repository branch to the local directory(file).
+5. "git status" to checkout the changes, "git branch" to ensure you're on the right branch, and "git push" to update the personal remote GitHub branch.
+6. Test if everything works. Operation validation step.
+7. "git checkout master" switch to master branch on personal repository.
+8. "git merge <personal_wip_branch> master" to merge the altered branch to the local master branch.
+9. "git checkout <personal_wip_branch>" to move back to WIP branch.
+
+OPTIONAL - Used only if the branch synched in was not to the WIP branch (had something working here). After step 8.
+1. "git branch -d <branch>" to delete the remote branch as clean up.
+2. "git checkout -b <new_personal_wip_branch>" to make a new branch. OR
+3. "git checkout <personal_wip_branch>"
