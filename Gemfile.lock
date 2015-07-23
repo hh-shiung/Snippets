@@ -170,7 +170,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip (~> 4.3)
+  paperclip (~> 4.2)
   pg
   rails (= 4.2.3)
   sass-rails (~> 5.0)

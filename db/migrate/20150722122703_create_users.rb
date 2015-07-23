@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :is_active
       t.integer :user_type
       t.string :token
-      t.string :avatar
+      # t.string :avatar
 
       t.timestamps null: false
     end
