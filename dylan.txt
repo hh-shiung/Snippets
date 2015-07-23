@@ -1,1 +1,5 @@
 20150721 first trail push with githhub
+20150722 - scaffold User user_id:integer email:string is_email_confirm:boolean is_active:boolean user_type:integer status:string token:string avatar:string
+         - added devise gem and rails g devise:install
+         - added paperclip gem, rails g paperclip user avatar
+20150723 - 
