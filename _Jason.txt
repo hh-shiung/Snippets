@@ -1,0 +1,5 @@
+2015 July 15 10:27PM
+Add
+gem 'faker'
+gem 'thin'
+gem 'guard'
