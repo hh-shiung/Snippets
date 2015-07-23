@@ -1,2 +1,42 @@
-This is JJ.txt
-Any updates write here
+Updates
+
+terminal
+  rails g controller landing
+
+routes.rb
+  get 'welcome' => 'landing#landingpage'
+
+landing_controller.rb
+  def landing
+  end
+
+VIEW
+app/views/landing/landingpage.html.erb created
+
+CSS
+app/assets/stylesheets/main.css created
+
+JS
+app/assets/javascript/ie created
+app/assets/javascript/jquery.min.js created
+app/assets/javascript/jquery.scrollex.min.js created
+app/assets/javascript/jquery.scrolly.min.js created
+app/assets/javascript/main.js created
+app/assets/javascript/skel.min.js created
+app/assets/javascript/util.js created
+
+JS - moves Jquery Plugins to vendors
+vendor/assets/javascripts/jquery.min.js created
+vendor/assets/javascripts/jquery.scrollex.min.js created
+vendor/assets/javascripts/jquery.scrolly.min.js created
+
+Shift all js from vendor into javascript
+change all the js src in landingpage.html.erb
+  from
+  <script src="js/jquery.min.js"></script>
+  to
+	<script src="assets/jquery.min.js"></script>
+
+images
+change src to
+<img id="logo" src="assets/logo3.svg" alt=""/>
