@@ -43,15 +43,18 @@ Creation of Snippet scaffold.
 Removed comments of routes.rb.
 
 Scaffolded data columns:
-  snippet_ID            auto-gen integer
+  snippet_id            auto-gen integer
   snippet_title         string
   snippet_description   text
   snippet_content       text
-  snippet_view_count    integer
+  snippet_view_count    integer auto-increase
 
-Uncreated data columns:
-  snippet_creator       user_ID
-  snippet_bookmark      user_IDs
+  snippet_creator       user_id
+
+For Favorite table:
+  favorite_id     auto-generated
+  user_id         user_id
+  snippet_id      snippet_id
 
 Obstacles:
   Formatting of index page for main Snippets view.
