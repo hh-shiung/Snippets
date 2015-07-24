@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150724085326) do
     t.integer  "snippet_view_count"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,4 +40,5 @@ ActiveRecord::Schema.define(version: 20150724085326) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
 end
