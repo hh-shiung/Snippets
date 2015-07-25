@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  snippet_title: MyString
+  snippet_description: MyText
+  snippet_content: MyText
+  snippet_view_count: 1
+
+two:
+  snippet_title: MyString
+  snippet_description: MyText
+  snippet_content: MyText
+  snippet_view_count: 1
