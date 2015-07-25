@@ -16,19 +16,23 @@ app/views/landing/landingpage.html.erb created
 CSS
 app/assets/stylesheets/main.css created
 
+Added to application.css
+  *= require_main
+  *= require_font-awesome.min
+
 JS
-app/assets/javascript/ie created
-app/assets/javascript/jquery.min.js created
-app/assets/javascript/jquery.scrollex.min.js created
-app/assets/javascript/jquery.scrolly.min.js created
-app/assets/javascript/main.js created
-app/assets/javascript/skel.min.js created
-app/assets/javascript/util.js created
+  app/assets/javascript/ie created
+  app/assets/javascript/jquery.min.js created
+  app/assets/javascript/jquery.scrollex.min.js created
+  app/assets/javascript/jquery.scrolly.min.js created
+  app/assets/javascript/main.js created
+  app/assets/javascript/skel.min.js created
+  app/assets/javascript/util.js created
 
 JS - moves Jquery Plugins to vendors
-vendor/assets/javascripts/jquery.min.js created
-vendor/assets/javascripts/jquery.scrollex.min.js created
-vendor/assets/javascripts/jquery.scrolly.min.js created
+  vendor/assets/javascripts/jquery.min.js created
+  vendor/assets/javascripts/jquery.scrollex.min.js created
+  vendor/assets/javascripts/jquery.scrolly.min.js created
 
 Shift all js from vendor into javascript
 change all the js src in landingpage.html.erb
@@ -37,6 +41,31 @@ change all the js src in landingpage.html.erb
   to
 	<script src="assets/jquery.min.js"></script>
 
+Added to application.js
+  //= require landing
+  //= require main
+  //= require skel.min
+  //= require util
+  //= require jquery.scrollex.min
+  //= require jquery.scrolly.min
+
 images
-change src to
-<img id="logo" src="assets/logo3.svg" alt=""/>
+  change src to
+  <img id="logo" src="assets/logo3.svg" alt=""/>
+
+FontAwesome
+  change font-awesome.min.css
+  to font-awesome.min.css.erb
+
+font-awesome.min.css.erb
+  change the original to
+  @font-face {
+    font-family: "FontAwesome";
+    src: url('<%= asset_path("fontawesome-webfont.eot") %>');
+    src: url('<%= asset_path("fontawesome-webfont.eot") + "?#iefix" %>') format('eot'),
+    url('<%= asset_path("fontawesome-webfont.woff") %>') format('woff'),
+    url('<%= asset_path("fontawesome-webfont.ttf") %>') format('truetype'),
+    url('<%= asset_path("fontawesome-webfont.svg") + "#FontAwesome" %>') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
