@@ -69,3 +69,64 @@ font-awesome.min.css.erb
     font-weight: normal;
     font-style: normal;
   }
+
+25-July-2015
+
+Route.rb
+Changed the following below
+
+  Rails.application.routes.draw do
+  <<<<<<< HEAD
+    # get 'welcome' => 'landing#landingpage'
+    root 'landing#landingpage'
+    # The priority is based upon order of creation: first created -> highest priority.
+    # See how all your routes lay out with "rake routes".
+  =======
+  >>>>>>> singchow/wip
+
+    resources :snippets
+    resources :users
+
+    root 'users#index'
+  end
+
+to
+
+  Rails.application.routes.draw do
+    resources :snippets
+    resources :users
+    # get 'welcome' => 'landing#landingpage'
+    root 'landing#landingpage'
+    # The priority is based upon order of creation: first created -> highest priority.
+    # See how all your routes lay out with "rake routes".
+  end
+
+TERMINAL run
+  rake db:migrate
+
+application.html.erb
+  comment out the following lines
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+main.css.erb
+  removed
+  @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+
+assets/stylesheet/scaffold.scss
+Comment out the following
+
+  body {
+    background-color: #fff;
+    color: #333;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  p, ol, ul, td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+  }

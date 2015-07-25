@@ -35,3 +35,29 @@ OPTIONAL - Used only if the branch synched in was not to the WIP branch (had som
 1. "git branch -d <branch>" to delete the remote branch as clean up.
 2. "git checkout -b <new_personal_wip_branch>" to make a new branch. OR
 3. "git checkout <personal_wip_branch>"
+
+150722
+== Log 3 ==
+
+Creation of Snippet scaffold.
+Removed comments of routes.rb.
+
+Scaffolded data columns:
+  snippet_id            auto-gen integer
+  snippet_title         string
+  snippet_description   text
+  snippet_content       text
+  snippet_view_count    integer auto-increase
+
+  snippet_creator       user_id
+
+For Favorite table:
+  favorite_id     auto-generated
+  user_id         user_id
+  snippet_id      snippet_id
+
+Obstacles:
+  Formatting of index page for main Snippets view.
+
+Solution:
+  Checking out tutorial for making a blog with RoR.
