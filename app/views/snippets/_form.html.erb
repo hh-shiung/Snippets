@@ -1,0 +1,33 @@
+<%= form_for(@snippet) do |f| %>
+  <% if @snippet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@snippet.errors.count, "error") %> prohibited this snippet from being saved:</h2>
+
+      <ul>
+      <% @snippet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :snippet_title %><br>
+    <%= f.text_field :snippet_title %>
+  </div>
+  <div class="field">
+    <%= f.label :snippet_description %><br>
+    <%= f.text_area :snippet_description %>
+  </div>
+  <div class="field">
+    <%= f.label :snippet_content %><br>
+    <%= f.text_area :snippet_content %>
+  </div>
+  <div class="field">
+    <%= f.label :snippet_view_count %><br>
+    <%= f.number_field :snippet_view_count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
