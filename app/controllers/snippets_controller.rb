@@ -4,7 +4,7 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
   def index
-    @snippets = Snippet.all
+    @snippets = Snippet.all.order(snippet_view_count: :desc)
   end
 
   # GET /snippets/1
