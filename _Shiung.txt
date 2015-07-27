@@ -61,3 +61,9 @@ Obstacles:
 
 Solution:
   Checking out tutorial for making a blog with RoR.
+
+150727
+== Log 4 ==
+Merged in new segments contributed from others.
+
+Added in a Favourite resource to the project.
