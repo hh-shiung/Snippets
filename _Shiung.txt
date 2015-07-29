@@ -49,6 +49,7 @@ Scaffolded data columns:
   snippet_content       text
   snippet_view_count    integer auto-increase
 
+Foreign key insertion:
   snippet_creator       user_id
 
 For Favorite table:
@@ -58,12 +59,21 @@ For Favorite table:
 
 Obstacles:
   Formatting of index page for main Snippets view.
+  Database association
+  Database manipulation
+  Foreign key insertion
+  Data extraction from Database
 
 Solution:
   Checking out tutorial for making a blog with RoR.
 
 150727
 == Log 4 ==
-Merged in new segments contributed from others.
+DONE: Merged in new segments contributed from others.
+DONE: Added in a Favourite resource to the project.
 
-Added in a Favourite resource to the project.
+150728
+== Log 5 ==
+TODO: Reminder to ask for the latest working version.
+TODO: Work on associating User, Snippet, and Favourite table.
+TODO: Go through recommended resources.
