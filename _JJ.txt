@@ -70,7 +70,9 @@ font-awesome.min.css.erb
     font-style: normal;
   }
 
+===========================================
 25-July-2015
+===========================================
 
 Route.rb
 Changed the following below
@@ -129,4 +131,35 @@ Comment out the following
     font-family: verdana, arial, helvetica, sans-serif;
     font-size: 13px;
     line-height: 18px;
+  }
+
+===========================================
+29-July-2015
+===========================================
+main.css.erb
+  change all the
+    url("../../assets/banner.jpg");
+  to
+    url('<%= asset_path("banner.jpg")%>');
+
+  change
+      src: url('../../assets/bariol.otf');
+  to
+      src: url('<%= asset_path("bariol.otf")%>');
+
+  change
+    background-image: url("../../assets/arrow.svg");
+  to
+    background-image: url('<%= asset_path("arrow.svg")%>');
+
+scaffold.scss(line24)
+  commented out color and bg-color with the // sign
+
+  &:visited {
+    // color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    // background-color: #000;
   }
