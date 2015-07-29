@@ -9,9 +9,25 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+# Landing Page
 Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( jquery.scrollex.min.js )
 Rails.application.config.assets.precompile += %w( jquery.scrolly.min.js )
 Rails.application.config.assets.precompile += %w( skel.min.js )
 Rails.application.config.assets.precompile += %w( util.js )
 Rails.application.config.assets.precompile += %w( main.js )
+
+# Sniplets Page
+Rails.application.config.assets.precompile += %w( jquery.min.js )
+Rails.application.config.assets.precompile += %w( jquery-1.8.3.min.js )
+Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( jquery.dcjqaccordion.2.7.js )
+Rails.application.config.assets.precompile += %w( jquery.scrollTo.min.js )
+Rails.application.config.assets.precompile += %w( jquery.nicescroll.js )
+Rails.application.config.assets.precompile += %w( jquery.sparkline.js )
+Rails.application.config.assets.precompile += %w( common-scripts.js )
+Rails.application.config.assets.precompile += %w( jquery.gritter.js )
+Rails.application.config.assets.precompile += %w( gritter-conf.js )
+Rails.application.config.assets.precompile += %w( sparkline-chart.js )
+Rails.application.config.assets.precompile += %w( zabuto_calendar.js )
