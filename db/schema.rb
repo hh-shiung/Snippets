@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20150724085326) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "password"
     t.boolean  "is_email_confirm"
