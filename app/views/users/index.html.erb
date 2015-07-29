@@ -5,8 +5,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>User ID</th>
       <th>Avatar</th>
-      <th>User</th>
+      <th>Username</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Email</th>
       <th>Password</th>
       <th>Is email confirm</th>
@@ -20,8 +23,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag user.avatar.url(:medium) %></td>
         <td><%= user.user_id %></td>
+        <td><%= image_tag user.avatar.url(:medium) %></td>
+        <td><%= user.username %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.password %></td>
         <td><%= user.is_email_confirm %></td>
