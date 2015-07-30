@@ -77,3 +77,8 @@ DONE: Added in a Favourite resource to the project.
 TODO: Reminder to ask for the latest working version.
 TODO: Work on associating User, Snippet, and Favourite table.
 TODO: Go through recommended resources.
+
+150729
+== Log 6 ==
+Created snapshot_150729 branch to log previous changes.
+Merged in new fetch from singchow on JS files
