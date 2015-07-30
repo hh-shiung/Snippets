@@ -10,23 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-// Default by rails
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-
-// Landing Page by JJ
-//= require jquery.scrollex.min
-//= require jquery.scrolly.min
-//= require skel.min
-//= require util
-//= require main
-
-// Index page by Jason
-//= require jquery.dcjqaccordion.2.7
-//= require common-scripts
-
-
-// require_tree Must remain as last
 //= require_tree .

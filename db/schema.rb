@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20150730035625) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "password"
     t.boolean  "is_email_confirm"
@@ -38,9 +41,6 @@ ActiveRecord::Schema.define(version: 20150730035625) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "username"
-    t.string   "first_name"
-    t.string   "last_name"
   end
 
 end
