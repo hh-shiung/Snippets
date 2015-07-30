@@ -55,5 +55,6 @@
   <%= @user.avatar %>
 </p>
 
+<%= link_to 'Create Snippet', new_snippet_path(@user) %> | 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

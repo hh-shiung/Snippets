@@ -87,5 +87,5 @@ Thinking of adding in comments after going through the tutorial.
 
 150730
 == Log 7 ==
-Associated One User to Many Snippets
-Created nested resource.
+Associated One User to Many Snippets.
+Merged in updates from remote branch.
