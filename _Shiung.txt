@@ -81,4 +81,6 @@ TODO: Go through recommended resources.
 150729
 == Log 6 ==
 Created snapshot_150729 branch to log previous changes.
-Merged in new fetch from singchow on JS files
+Merged in new fetch from singchow on JS file. 
+Removed and recreated Favourite to Favorite scaffolding resource.
+Thinking of adding in comments after going through the tutorial.
