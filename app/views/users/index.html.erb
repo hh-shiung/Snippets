@@ -5,17 +5,17 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>User ID</th>
+      <!-- <th>User ID</th> -->
       <th>Avatar</th>
       <th>Username</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
       <th>Password</th>
-      <th>Is email confirm</th>
+      <!-- <th>Is email confirm</th>
       <th>Is active</th>
       <th>User type</th>
-      <th>Token</th>
+      <th>Token</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,17 +23,17 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.user_id %></td>
+        <!-- <td><%# user.user_id %></td> -->
         <td><%= image_tag user.avatar.url(:medium) %></td>
         <td><%= user.username %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.password %></td>
-        <td><%= user.is_email_confirm %></td>
+        <!-- <td><%= user.is_email_confirm %></td>
         <td><%= user.is_active %></td>
         <td><%= user.user_type %></td>
-        <td><%= user.token %></td>
+        <td><%= user.token %></td> -->
         <!-- <td><%= user.avatar %></td> -->
         <td><%= link_to 'Show', user, class:"btn btn-default", type:"button" %></td>
         <td><%= link_to 'Edit', edit_user_path(user), class:"btn btn-default", type:"button" %></td>
