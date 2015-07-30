@@ -1402,10 +1402,6 @@
 		width: device-width;
 	}
 
-	body {
-		background: #2e3842;
-	}
-
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
@@ -1417,10 +1413,10 @@
 			transition: none !important;
 		}
 
-	body, input, select, textarea {
+	body.landing, input, select, textarea {
 		color: #fff;
 		font-family: "Open Sans", Helvetica, sans-serif;
-		font-size: 15pt;
+		font-size: 16px;
 		font-weight: 400;
 		letter-spacing: 0.075em;
 		line-height: 1.65em;
@@ -2618,8 +2614,9 @@
 
 /* Wrapper */
 
-	.wrapper {
+	.landing .wrapper {
 		padding: 6em 0 4em 0 ;
+    margin: 0;
 	}
 
 		.wrapper > .inner {

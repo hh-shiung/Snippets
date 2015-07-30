@@ -163,3 +163,18 @@ scaffold.scss(line24)
     color: #fff;
     // background-color: #000;
   }
+
+===========================================
+30-July-2015
+===========================================
+main.css.erb
+line 1416
+	change - body, input, select, textarea
+	to - body.landing, input, select, textarea
+
+line 1419
+ font-size 15pt to 16px
+
+line 2617
+  .wrapper to
+  .landing .wrapper
