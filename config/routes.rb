@@ -8,5 +8,8 @@ Rails.application.routes.draw do
 
   get '/index' => 'display#showIndex'
   get '/users/new' => 'users#new'
+  get '/login' => 'display#showLogin'
+  get '/lock' => 'display#showLock'
+  get '/register' => 'users#new'
 
 end
