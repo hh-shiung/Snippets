@@ -89,3 +89,7 @@ Thinking of adding in comments after going through the tutorial.
 == Log 7 ==
 Associated One User to Many Snippets.
 Merged in updates from remote branch.
+
+150731
+== Log 8 ==
+Merged things into the new file. Updated things with the remote branch.
