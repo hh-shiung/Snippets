@@ -8,6 +8,20 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def showIndex
+    puts params[:email]
+    puts "showIndex"
+		render template: 'landing/index'
+	end
+
+  def showLogin
+    render template: 'users/login'
+  end
+
+  def showLock
+    render template: 'users/lock_screen'
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
