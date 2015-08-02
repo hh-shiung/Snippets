@@ -24,7 +24,10 @@ class SnippetsController < ApplicationController
   # POST /snippets
   # POST /snippets.json
   def create
-    @snippet = Snippet.new(snippet_params)
+    # Associate User to Snippets
+    @user = User.find(params[:user_id])
+    @snippet = @user.snippets.create(snippet_params)
+    # @snippet = Snippet.new(snippet_params)
 
     respond_to do |format|
       if @snippet.save

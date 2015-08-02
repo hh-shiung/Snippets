@@ -49,6 +49,7 @@ Scaffolded data columns:
   snippet_content       text
   snippet_view_count    integer auto-increase
 
+Foreign key insertion:
   snippet_creator       user_id
 
 For Favorite table:
@@ -58,6 +59,37 @@ For Favorite table:
 
 Obstacles:
   Formatting of index page for main Snippets view.
+  Database association
+  Database manipulation
+  Foreign key insertion
+  Data extraction from Database
 
 Solution:
   Checking out tutorial for making a blog with RoR.
+
+150727
+== Log 4 ==
+DONE: Merged in new segments contributed from others.
+DONE: Added in a Favourite resource to the project.
+
+150728
+== Log 5 ==
+TODO: Reminder to ask for the latest working version.
+TODO: Work on associating User, Snippet, and Favourite table.
+TODO: Go through recommended resources.
+
+150729
+== Log 6 ==
+Created snapshot_150729 branch to log previous changes.
+Merged in new fetch from singchow on JS file.
+Removed and recreated Favourite to Favorite scaffolding resource.
+Thinking of adding in comments after going through the tutorial.
+
+150730
+== Log 7 ==
+Associated One User to Many Snippets.
+Merged in updates from remote branch.
+
+150731
+== Log 8 ==
+Merged things into the new file. Updated things with the remote branch.
