@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def showIndex
     puts params[:email]
-    puts "showIndex"
+    flash[:keyword] = "Welcome #{params[:email]}"
 		render template: 'landing/index'
 	end
 
