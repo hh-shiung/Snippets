@@ -3,3 +3,16 @@ Add
 gem 'faker'
 gem 'thin'
 gem 'guard'
+
+2015 July 29 11:30pm
+Have added 3 gems file
+gem 'faker'
+gem 'thin'
+gem 'guard'
+
+Please do bundle install after pulling. Gem guard-livereload is added due to multiple changes required for modifying templates and views, so in order to use livereload, please follow the guides and install livereload extension 
+http://livereload.com/extensions/#installing-sections
+after that, please run 
+guard init livereload and leave it there for running
+and in the browser, you should see a circle or a refresh button on the right side of url, click it. 
+and you'll see it's running.
