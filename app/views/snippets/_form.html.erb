@@ -27,6 +27,7 @@
      f.number_field :snippet_view_count
   </div> -->
   <div class="actions">
+    <%= hidden_field_tag 'user_email', @snippetuser.email  %>
     <%= f.submit %>
   </div>
 <% end %>

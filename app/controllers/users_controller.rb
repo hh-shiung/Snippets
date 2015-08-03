@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    puts @users.first.id
+    puts "User ID hEre"
   end
 
   def showIndex
