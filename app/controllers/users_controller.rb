@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   end
 
   def showIndex
-    puts params[:email]
-    flash[:keyword] = "Welcome #{params[:email]}"
+    @welcomemsg = "Welcome #{params[:email]}"
+    @snippets = Snippet.all.order(snippet_view_count: :desc)
+    puts @snippets.first.snippet_title
+    puts "Hello"
 		render template: 'landing/index'
 	end
 
