@@ -163,3 +163,43 @@ scaffold.scss(line24)
     color: #fff;
     // background-color: #000;
   }
+
+===========================================
+30-July-2015
+===========================================
+main.css.erb
+line 1416
+	change - body, input, select, textarea
+	to - body.landing, input, select, textarea
+
+line 1419
+ font-size 15pt to 16px
+
+line 2617
+  .wrapper to
+  .landing .wrapper
+
+new.html.erb
+added a new body tag to the below
+  <h1>New User</h1>
+
+  <%= render 'form' %>
+
+  <%= link_to 'Back', users_path %>
+
+main.css.erb
+added the following
+  body#newuser h1,
+  body#newuser label{
+    color:#000;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size:15px;
+    margin:5px;
+    margin-left:10px;
+  }
+
+  body#newuser h1
+  {
+    font-size:20px;
+    margin-bottom:10px;
+  }
