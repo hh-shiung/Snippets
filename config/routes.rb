@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # get 'welcome' => 'landing#landingpage'
   root 'landing#landingpage'
 
+  get '/index' => 'users#showIndex'
   post '/index' => 'users#showIndex'
   get '/login' => 'users#showLogin'
   get '/lock' => 'users#showLock'
