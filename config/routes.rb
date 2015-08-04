@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/login' => 'users#showLogin'
   get '/lock' => 'users#showLock'
   get '/register' => 'users#new'
+  get '/confirmation/:token' , to: 'users#verifyToken'
 end

@@ -11,7 +11,6 @@
   </head>
 
   <body>
-
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -96,7 +95,6 @@
               <div class="col-lg-12">
                 <h2 style="color:black"><%= @welcomemsg %></h2>
               <p>Place your content here.</p>
-
               <table>
                 <thead>
                   <tr>
@@ -151,6 +149,10 @@
 
       $('.test').click(function (){
         $('.sub').slideToggle( "fast" );
+      });
+
+      $('.go-top').click(function (){
+        $("html, body").animate({scrollTop: 0}, 500);
       });
 
 
