@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def showIndex
     @welcomemsg = "Welcome #{params[:email]}"
     @snippets = Snippet.all.order(snippet_view_count: :desc)
-    puts @snippets.first.snippet_title
+    # puts @snippets.first.snippet_title
     puts "Hello"
 		render template: 'landing/index'
 	end
