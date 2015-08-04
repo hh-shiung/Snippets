@@ -93,3 +93,7 @@ Merged in updates from remote branch.
 150731
 == Log 8 ==
 Merged things into the new file. Updated things with the remote branch.
+
+150804
+== Log 9 ==
+<div class="footer navbar-fixed-bottom"> to keep the footer bar down.
