@@ -44,6 +44,36 @@ class UsersController < ApplicationController
     render template: 'users/performance'
   end
 
+  def sendEmail
+    # user = User.find_by(name: "Bryan Lim")
+    # UserMailer.welcome(user).deliver
+    require 'SecureRandom'
+    @email = params[:email]
+    @password = params[:login_pass]
+    @token = SecureRandom.hex
+    # @email = "soldiermaker2@gmail.com"
+    @is_activate = 0
+    UserMailer.welcome(@email,@token).deliver
+    object = User.new(:email => @email, :password => @password, :token => @token, :is_email_confirm => 0)
+    object.save
+    render template: "test/blank"
+  end
+
+  def verifyToken
+    @token = params[:token]
+    # user = User.find_by(token: token)
+    # if(user)
+    #   # user.update_all({:is_activate => 1, :token => nil})
+    #   User.where(:id => user.id).update_all({:is_activate => true, :token => nil})
+    #   user.save
+    #   @is_success = 1
+    #   @email_Address = user.email
+    # else
+    #     @is_success = 0
+    # end
+    render template: 'test/blank'
+  end
+  
   # GET /users/1
   # GET /users/1.json
   def show

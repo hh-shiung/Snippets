@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get '/fav' => 'users#showFav'
   get '/performance' => 'users#showPerformance'
   get '/confirmation/:token' , to: 'users#verifyToken'
+  get '/test' => 'users#sendEmail'
+
 end
