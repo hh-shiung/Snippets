@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
     if (params[:email] != nil)
-    session[:current_user_email] = params[:email]
+    cookies[:current_user_email] = params[:email]
   end
 
 @welcomemsg = "Welcome #{session[:current_user_email]}"
