@@ -93,3 +93,15 @@ Merged in updates from remote branch.
 150731
 == Log 8 ==
 Merged things into the new file. Updated things with the remote branch.
+
+150803
+== Log 9 ==
+Remove all printed errors.
+All available links/buttons must be working.
+
+150804
+== Log 10 ==
+Configured outlook of Snippets
+  <div class="footer navbar-fixed-bottom"> to keep the footer bar down.
+
+Adding Impressionist gem for page counting.
