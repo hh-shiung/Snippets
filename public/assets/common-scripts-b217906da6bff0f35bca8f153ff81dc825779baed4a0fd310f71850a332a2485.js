@@ -1,4 +1,5 @@
 /*---LEFT BAR ACCORDION----*/
+
 $(function() {
     $('#nav-accordion').dcAccordion({
         eventType: 'click',
@@ -11,6 +12,8 @@ $(function() {
 //        cookie: 'dcjq-accordion-1',
         classExpand: 'dcjq-current-parent'
     });
+
+
 
 //    sidebar dropdown menu auto scrolling
     
@@ -90,6 +93,13 @@ $(function() {
     });
 
 
+//    tool tips
+
+    $('.tooltips').tooltip();
+
+//    popovers
+
+    $('.popovers').popover();
 
 
 
@@ -108,4 +118,8 @@ $(function() {
 
 
 });
+
+var Script = function () {
+
+}();
 

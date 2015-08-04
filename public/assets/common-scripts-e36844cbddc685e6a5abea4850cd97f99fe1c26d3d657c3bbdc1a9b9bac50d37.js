@@ -1,4 +1,5 @@
 /*---LEFT BAR ACCORDION----*/
+
 $(function() {
     $('#nav-accordion').dcAccordion({
         eventType: 'click',
@@ -12,8 +13,10 @@ $(function() {
         classExpand: 'dcjq-current-parent'
     });
 
+
+
 //    sidebar dropdown menu auto scrolling
-    
+
     jQuery('#sidebar .sub-menu > a').click(function () {
         var o = ($(this).offset());
         diff = 250 - o.top;
@@ -28,7 +31,6 @@ $(function() {
 //    sidebar toggle
 
     $(function() {
-        
         function responsiveView() {
             var wSize = $(window).width();
             if (wSize <= 768) {
@@ -90,6 +92,13 @@ $(function() {
     });
 
 
+//    tool tips
+
+    $('.tooltips').tooltip();
+
+//    popovers
+
+    $('.popovers').popover();
 
 
 
@@ -108,4 +117,8 @@ $(function() {
 
 
 });
+
+var Script = function () {
+
+}();
 
