@@ -98,3 +98,5 @@ Merged things into the new file. Updated things with the remote branch.
 == Log 9 ==
 Remove all printed errors.
 All available links/buttons must be working.
+
+Adding Impressionist gem for page counting.
