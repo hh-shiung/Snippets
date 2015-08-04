@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     cookies[:current_user_email] = params[:email]
   end
 
-@welcomemsg = "Welcome #{session[:current_user_email]}"
+    @welcomemsg = "Welcome #{cookies[:current_user_email]}"
 
     @snippets = Snippet.all.order(snippet_view_count: :desc)
 		render template: 'landing/index'
@@ -32,7 +32,11 @@ class UsersController < ApplicationController
   end
 
   def showPersonal
-    puts @welcomemsg
+    puts cookies[:current_user_email]
+
+    @personaluserid =  User.find_by(email: cookies[:current_user_email])
+    puts @personaluserid.email
+    @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
     render template: 'users/personal'
   end
 
