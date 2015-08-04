@@ -2,7 +2,6 @@
   <% if @snippet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@snippet.errors.count, "error") %> prohibited this snippet from being saved:</h2>
-
       <ul>
       <% @snippet.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -23,11 +22,12 @@
     <%= f.label :snippet_content %><br>
     <%= f.text_area :snippet_content %>
   </div>
-  <div class="field">
-    <%= f.label :snippet_view_count %><br>
-    <%= f.number_field :snippet_view_count %>
-  </div>
+  <!-- <div class="field">
+     f.label :snippet_view_count
+     f.number_field :snippet_view_count
+  </div> -->
   <div class="actions">
+    <%= hidden_field_tag 'user_email', @snippetuser.email  %>
     <%= f.submit %>
   </div>
 <% end %>

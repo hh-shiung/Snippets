@@ -5,11 +5,11 @@ class DisplayController < ApplicationController
 	end
 
 	def showLogin
-		render template: 'snippets/login'
+		render template: 'users/login'
 	end
 
 	def showLock
-		render template: 'snippets/lock_screen'
+		render template: 'users/lock_screen'
 	end
-	
+
 end
