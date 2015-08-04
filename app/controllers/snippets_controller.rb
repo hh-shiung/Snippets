@@ -1,6 +1,7 @@
 class SnippetsController < ApplicationController
   layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  impressionist :actions => [:show, :index]
 
   # GET /snippets
   # GET /snippets.json
@@ -11,6 +12,8 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
+    @snippet = Snippet.find
+    impressionist(@snippet, "message...")
   end
 
   # GET /snippets/new

@@ -102,3 +102,4 @@ All available links/buttons must be working.
 150804
 == Log 10 ==
 <div class="footer navbar-fixed-bottom"> to keep the footer bar down.
+Adding Impressionist gem for page counting.
