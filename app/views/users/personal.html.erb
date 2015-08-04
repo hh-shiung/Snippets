@@ -41,14 +41,14 @@
                   <h5 class="centered">let you win la</h5>
 
                   <li class="mt">
-                      <a class="active" href="/index">
+                      <a href="/index">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="/personal" >
+                      <a class="active" href="/personal" >
                           <i class="fa fa-coffee"></i>
                           <span>Personal Snippets</span>
                       </a>
@@ -104,7 +104,7 @@
                 </thead>
 
                 <tbody>
-                  <% @snippets.each do |snippet| %>
+                  <% @personalsnippets.each do |snippet| %>
                     <tr>
                       <td colspan="3"><%= snippet.snippet_title %></td>
                       <td colspan="3"><%= snippet.snippet_description %></td>
