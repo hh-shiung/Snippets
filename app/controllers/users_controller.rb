@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @email = params[:email]
     @password = params[:login_pass]
     @token = SecureRandom.hex
-    # @email = "soldiermaker2@gmail.com"
+    # @email = ""
     @is_activate = 0
     UserMailer.welcome(@email,@token).deliver
     object = User.new(:email => @email, :password => @password, :token => @token, :is_email_confirm => 0)
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
     # end
     render template: 'test/blank'
   end
-  
+
   # GET /users/1
   # GET /users/1.json
   def show

@@ -26,7 +26,7 @@ and you'll see it's running.
 4 )Added send Email feature and account activation
 5 )Modified logout redirecting to login page
 6 )Added smooth scrolling when clicking "Back to Top"
-
+7 )To test the email send function please comment out users_controller.rb line 51,52,55,57,58 and uncomment line 54 and type in your own email 
 
 <<<<<<< Known issue >>>>>>>
 1 )Login still not working and session control are not ready yet
