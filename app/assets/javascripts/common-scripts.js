@@ -11,13 +11,9 @@ $(function() {
 //        cookie: 'dcjq-accordion-1',
         classExpand: 'dcjq-current-parent'
     });
-});
-
-var Script = function () {
-
 
 //    sidebar dropdown menu auto scrolling
-
+    
     jQuery('#sidebar .sub-menu > a').click(function () {
         var o = ($(this).offset());
         diff = 250 - o.top;
@@ -32,6 +28,7 @@ var Script = function () {
 //    sidebar toggle
 
     $(function() {
+        
         function responsiveView() {
             var wSize = $(window).width();
             if (wSize <= 768) {
@@ -71,9 +68,9 @@ var Script = function () {
     });
 
 // custom scrollbar
-    $("#sidebar").nicescroll({styler:"fb",cursorcolor:"#4ECDC4", cursorwidth: '3', cursorborderradius: '10px', background: '#404040', spacebarenabled:false, cursorborder: ''});
+    $("#sidebar").getNiceScroll({styler:"fb",cursorcolor:"#4ECDC4", cursorwidth: '3', cursorborderradius: '10px', background: '#404040', spacebarenabled:false, cursorborder: ''});
 
-    $("html").nicescroll({styler:"fb",cursorcolor:"#4ECDC4", cursorwidth: '6', cursorborderradius: '10px', background: '#404040', spacebarenabled:false,  cursorborder: '', zindex: '1000'});
+    $("html").getNiceScroll({styler:"fb",cursorcolor:"#4ECDC4", cursorwidth: '6', cursorborderradius: '10px', background: '#404040', spacebarenabled:false,  cursorborder: '', zindex: '1000'});
 
 // widget tools
 
@@ -93,13 +90,6 @@ var Script = function () {
     });
 
 
-//    tool tips
-
-    $('.tooltips').tooltip();
-
-//    popovers
-
-    $('.popovers').popover();
 
 
 
@@ -116,4 +106,6 @@ var Script = function () {
     }
 
 
-}();
+
+});
+
