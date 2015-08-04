@@ -26,6 +26,18 @@ class UsersController < ApplicationController
     render template: 'users/lock_screen'
   end
 
+  def showPersonal
+    render template: 'users/personal'
+  end
+
+  def showFav
+    render template: 'favorites/fav'
+  end
+
+  def showPerformance
+    render template: 'users/performance'
+  end
+  
   # GET /users/1
   # GET /users/1.json
   def show
