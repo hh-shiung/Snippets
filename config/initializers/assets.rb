@@ -19,8 +19,9 @@ Rails.application.config.assets.precompile += %w( util.js )
 Rails.application.config.assets.precompile += %w( main.js )
 
 # Snippets Dashboard Page JS
-Rails.application.config.assets.precompile += %w( jquery.dcjqaccordion.2.7.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( modernizr.min.js )
+Rails.application.config.assets.precompile += %w( jquery.dcjqaccordion.2.7.js )
 Rails.application.config.assets.precompile += %w( jquery-ui-1.9.2.custom.min.js )
 Rails.application.config.assets.precompile += %w( jquery.ui.touch-punch.min.js )
 Rails.application.config.assets.precompile += %w( jquery.scrollTo.min.js )
@@ -32,7 +33,6 @@ Rails.application.config.assets.precompile += %w( sparkline-chart.js )
 Rails.application.config.assets.precompile += %w( zabuto_calendar.js )
 Rails.application.config.assets.precompile += %w( common-scripts.js )
 Rails.application.config.assets.precompile += %w( Chart.js )
-Rails.application.config.assets.precompile += %w( npm.js )
 
 # Snippets Login Page JS
 Rails.application.config.assets.precompile += %w( jquery.backstretch.min.js )
