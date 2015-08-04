@@ -6,11 +6,30 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    puts @users.first.id
+    puts "User ID hEre"
+  end
+
+  def showIndex
+    @welcomemsg = "Welcome #{params[:email]}"
+    @snippets = Snippet.all.order(snippet_view_count: :desc)
+    # puts @snippets.first.snippet_title
+    puts "Hello"
+		render template: 'landing/index'
+	end
+
+  def showLogin
+    render template: 'users/login'
+  end
+
+  def showLock
+    render template: 'users/lock_screen'
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @users = User.find(params[:id])
   end
 
   # GET /users/new
@@ -20,23 +39,27 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+    redirect_to "/login"
     end
+
+    # respond_to do |format|
+    #   if @user.save
+    #     # format.html { redirect_to @user, notice: 'User was successfully created.' }
+    #     # format.json { render :show, status: :created, location: @user }
+    #     render template: 'users/login'
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /users/1

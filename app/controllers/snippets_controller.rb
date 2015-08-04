@@ -15,6 +15,9 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
+    puts params[:user_email]
+    @snippetuser = User.find_by(email: params[:user_email])
+    puts @snippetuser.email
   end
 
   # GET /snippets/1/edit
@@ -24,7 +27,15 @@ class SnippetsController < ApplicationController
   # POST /snippets
   # POST /snippets.json
   def create
-    @snippet = Snippet.new(snippet_params)
+    # Associate User to Snippets
+    # puts params[:user_email]
+    # @user = User.find_by(email: params[:user_email])
+    # puts @user.first.email
+    puts params[:user_email]
+    @snippetuser = User.find_by(email: params[:user_email])
+    puts @snippetuser.email
+    @snippet = @snippetuser.snippets.create(snippet_params)
+    # @snippet = Snippet.new(snippet_params)
 
     respond_to do |format|
       if @snippet.save

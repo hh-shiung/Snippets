@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730035625) do
+ActiveRecord::Schema.define(version: 20150730125041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "snippets", force: :cascade do |t|
     t.string   "snippet_title"
@@ -23,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150730035625) do
     t.integer  "snippet_view_count"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,4 +49,5 @@ ActiveRecord::Schema.define(version: 20150730035625) do
     t.datetime "avatar_updated_at"
   end
 
+  add_foreign_key "snippets", "users"
 end
