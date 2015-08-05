@@ -25,5 +25,8 @@ module Snippets
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
+    # MaxPostInADay  = "20"
+    # Example, This is how we store constant variable in our project
+
   end
 end

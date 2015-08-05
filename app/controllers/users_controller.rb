@@ -11,10 +11,15 @@ class UsersController < ApplicationController
   end
 
   def showIndex
-    @welcomemsg = "Welcome #{params[:email]}"
+    # Snippets::Application::MaxPostInADay
+    # Refer to config/application.rb for Global Static Variable
+    if (params[:email] != nil)
+    cookies[:current_user_email] = params[:email]
+  end
+
+    @welcomemsg = "Welcome #{cookies[:current_user_email]}"
+
     @snippets = Snippet.all.order(snippet_view_count: :desc)
-    # puts @snippets.first.snippet_title
-    puts "Hello"
 		render template: 'landing/index'
 	end
 
@@ -24,6 +29,23 @@ class UsersController < ApplicationController
 
   def showLock
     render template: 'users/lock_screen'
+  end
+
+  def showPersonal
+    puts cookies[:current_user_email]
+
+    @personaluserid =  User.find_by(email: cookies[:current_user_email])
+    puts @personaluserid.email
+    @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
+    render template: 'users/personal'
+  end
+
+  def showFav
+    render template: 'favorites/fav'
+  end
+
+  def showPerformance
+    render template: 'users/performance'
   end
 
   # GET /users/1
