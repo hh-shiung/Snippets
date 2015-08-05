@@ -14,14 +14,25 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
     if (params[:email] != nil)
+
     cookies[:current_user_email] = params[:email]
 
     @personaluserid =  User.find_by(email: cookies[:current_user_email])
     puts @personaluserid.username
     cookies[:current_username] = @personaluserid.username
+    puts @personaluserid.avatar
     cookies[:current_avatar] = @personaluserid.avatar
 
-  end
+
+    end
+
+    if(User.exists?(email: cookies[:current_user_email]))
+      # Do nothing. Continue
+    else
+      flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
+      redirect_to "/login" and return
+    end
+
 
     @welcomemsg = "Welcome #{cookies[:current_user_email]}"
 
@@ -42,6 +53,7 @@ class UsersController < ApplicationController
 
     @personaluserid =  User.find_by(email: cookies[:current_user_email])
     puts @personaluserid.email
+    puts @personaluserid.username
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
     render template: 'users/personal'
   end
@@ -87,6 +99,14 @@ class UsersController < ApplicationController
     render template: 'test/blank'
   end
 
+  def getinput
+    @input_email = params[:email]
+    @input_password = params[:password]
+    @input_first_name = params[:first_name]
+    @input_last_name = params[:last_name]
+
+    render template: 'test/blank'
+  end
   # GET /users/1
   # GET /users/1.json
   def show
