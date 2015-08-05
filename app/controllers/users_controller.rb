@@ -13,9 +13,15 @@ class UsersController < ApplicationController
   def showIndex
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
-    if (params[:email] != nil)
-    cookies[:current_user_email] = params[:email]
-  end
+
+    if(User.exists?(email: params[:email]))
+      if (params[:email] != nil)
+        cookies[:current_user_email] = params[:email]
+      end
+    else
+      flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
+      redirect_to "/login" and return
+    end
 
     @welcomemsg = "Welcome #{cookies[:current_user_email]}"
 
