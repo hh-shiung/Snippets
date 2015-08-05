@@ -16,3 +16,28 @@ after that, please run
 guard init livereload and leave it there for running
 and in the browser, you should see a circle or a refresh button on the right side of url, click it. 
 and you'll see it's running.
+
+2015 August 5 
+
+<<<<<<< Work Done this week >>>>>>>
+1 )Modified all url redirecting and added blank page for each of the category
+2 )Added Login Page interface
+3 )Modified CSS/JS and ran rake assets:clean
+4 )Added send Email feature and account activation
+5 )Modified logout redirecting to login page
+6 )Added smooth scrolling when clicking "Back to Top"
+7 )To test the email send function please comment out users_controller.rb line 51,52,55,57,58 and uncomment line 54 and type in your own email 
+
+<<<<<<< Known issue >>>>>>>
+1 )Login still not working and session control are not ready yet
+2 )Interface display in register and blank page are not ready yet
+3 )Avatar has not display properly yet
+4 )Popover function will be take away due to un-identify error
+5 )Loading Screen are not done yet
+
+
+<<<<<<< Work In Progress(WIP) >>>>>>>
+1 )Proper way to login and registration page interface design
+2 )Higher level security measurement for input validation
+3 )Devise session control for maintaining login
+4 )Lock page for expired session
