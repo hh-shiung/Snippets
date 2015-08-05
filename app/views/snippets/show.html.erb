@@ -2,13 +2,17 @@
 
 <h1><%= @snippet.snippet_title %></h1>
 
-<p>
-  <%= @snippet.snippet_description %>
-</p>
+<table class="table">
+  <thead>
+    <th class="col-md-2"><h2>Snippet</h2></th>
+    <th class="col-md-10"><h2>Description</h2></th>
+  </thead>
 
-<p>
-  <%= @snippet.snippet_content %>
-</p>
+  <tbody>
+    <td class="col-md-2"><%= @snippet.snippet_content %></td>
+    <td class="col-md-10"><%= @snippet.snippet_description %></td>
+  </tbody>
+</table>
 
 <!-- <%#= link_to 'Edit', edit_snippet_path(@snippet) %> | -->
 <%= link_to 'Back', "/index" %>
