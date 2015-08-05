@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     # Refer to config/application.rb for Global Static Variable
     if (params[:email] != nil)
     cookies[:current_user_email] = params[:email]
+
+    @personaluserid =  User.find_by(email: cookies[:current_user_email])
+    puts @personaluserid.username
+    cookies[:current_username] = @personaluserid.username
+    cookies[:current_avatar] = @personaluserid.avatar
+
   end
 
     @welcomemsg = "Welcome #{cookies[:current_user_email]}"
@@ -41,14 +47,13 @@ class UsersController < ApplicationController
   end
 
   def showFav
-
+    @username =
 
     render template: 'favorites/fav'
   end
 
   def showPerformance
-    @users = User.all
-    puts @users.username
+
     render template: 'users/performance'
   end
 
