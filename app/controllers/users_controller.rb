@@ -41,10 +41,14 @@ class UsersController < ApplicationController
   end
 
   def showFav
+
+
     render template: 'favorites/fav'
   end
 
   def showPerformance
+    @users = User.all
+    puts @users.username
     render template: 'users/performance'
   end
 
