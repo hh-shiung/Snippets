@@ -78,6 +78,14 @@ class UsersController < ApplicationController
     render template: 'test/blank'
   end
 
+  def getinput
+    @input_email = params[:email]
+    @input_password = params[:password]
+    @input_first_name = params[:first_name]
+    @input_last_name = params[:last_name]
+
+    render template: 'test/blank'
+  end
   # GET /users/1
   # GET /users/1.json
   def show

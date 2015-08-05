@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get '/performance' => 'users#showPerformance'
   get '/confirmation/:token' , to: 'users#verifyToken'
   get '/test' => 'users#sendEmail'
+  post '/getinput' => 'users#getinput'
 
 end
