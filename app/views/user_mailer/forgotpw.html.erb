@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to RoR Snippets, <%= @email %></h1>
+    <p>
+     You have requested password recovery for http://rorsnippet.herokuapp.com/,
+      your login ID is: <%= @email %>.<br>
+    </p>
+    <p>
+      To start the recovery process, just follow this link: <%= @url %>
+    </p>
+    <p>Thanks for using this feature and have a great day!</p>
+  </body>
+</html>
