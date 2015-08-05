@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
 
-    if(User.exists?(email: params[:email]))
+    if(User.exists?(email: cookies[:current_user_email]))
       if (params[:email] != nil)
         cookies[:current_user_email] = params[:email]
       end
