@@ -4,3 +4,4 @@
 - Added Authentication method in user dashboard. Check if User.exists?
 - Added Error notice if user did not exist when they tried to login, using flash[:invaliduser] in login form
 - BUG : Use cookies instead of params in ShowIndex
+- BUG : Fixed bug to use params first then only cookie
