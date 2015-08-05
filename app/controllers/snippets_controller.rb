@@ -12,8 +12,6 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
-    @snippet = Snippet.find
-    impressionist(@snippet, "message...")
   end
 
   # GET /snippets/new
