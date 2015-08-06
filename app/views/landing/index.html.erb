@@ -32,57 +32,53 @@
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
       <aside>
-          <div id="sidebar"  class="nav-collapse">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="">
+        <div id="sidebar"  class="nav-collapse"> <!-- sidebar menu start-->
+          <ul class="sidebar-menu" id="">
+            <p class="centered"><a href="profile.html"><img src="<%= cookies[:current_avatar] %>" class="img-circle" width="60"></a></p>
+            <h5 class="centered"><%= cookies[:current_username] %></h5>
+              <li class="mt">
+                <a class="active" href="/index">
+                  <i class="fa fa-dashboard"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
 
-                  <p class="centered"><a href="profile.html"><img src="<%= cookies[:current_avatar] %>" class="img-circle" width="60"></a></p>
+              <li class="sub-menu">
+                <a href="/personal" >
+                    <i class="fa fa-coffee"></i>
+                    <span>Personal Snippets</span>
+                </a>
+              </li>
 
-                  <h5 class="centered"><%= cookies[:current_username] %></h5>
+              <li class="sub-menu">
+                <a href="/fav" >
+                  <i class="fa fa-heart"></i>
+                  <span>Favourite</span>
+                </a>
+              </li>
 
-                  <li class="mt">
-                      <a class="active" href="/index">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
-                  </li>
+              <li class="sub-menu">
+                <a href="/performance" >
+                  <i class="fa fa-bar-chart-o"></i>
+                  <span>Performance</span>
+                </a>
 
-                  <li class="sub-menu">
-                      <a href="/personal" >
-                          <i class="fa fa-coffee"></i>
-                          <span>Personal Snippets</span>
-                      </a>
-                  </li>
-
-                  <!-- <li class="sub-menu">
-                      <a href="/fav" >
-                          <i class="fa fa-heart"></i>
-                          <span>Favourite</span>
-                      </a>
-                  </li> -->
-                  <!-- <li class="sub-menu">
-                      <a href="/performance" >
-                          <i class="fa fa-bar-chart-o"></i>
-                          <span>Performance</span>
-                      </a>
-                  </li> -->
-                  <li class="sub-menu">
-                      <a href="#" class="test">
-                          <i class="fa fa-cogs"></i>
-                          <span>Settings</span>
-                      </a>
-                      <ul class="sub">
-<!--                           <li><a href="#"><i class="fa fa-level-up"></i>Upgrade</a></li>
-                          <li><a href="#"><i class="fa fa-key"></i>Change Password</a></li>
-                          <li><a href="#"><i class="fa fa-ban"></i>Deactivate Account</a></li> -->
-                          <li><a href="/login"><i class="fa fa-sign-out"></i>Logout</a></li>
-                      </ul>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
+              </li>
+                <li class="sub-menu">
+                  <a href="#" class="test">
+                    <i class="fa fa-cogs"></i>
+                    <span>Settings</span>
+                  </a>
+                <ul class="sub">
+                  <!-- <li><a href="#"><i class="fa fa-level-up"></i>Upgrade</a></li> -->
+                  <!-- <li><a href="#"><i class="fa fa-key"></i>Change Password</a></li> -->
+                  <!-- <li><a href="#"><i class="fa fa-ban"></i>Deactivate Account</a></li> -->
+                  <li><a href="/login"><i class="fa fa-sign-out"></i>Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- sidebar menu end-->
+        </aside><!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT

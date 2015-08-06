@@ -8,7 +8,12 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   def index
     @snippets = Snippet.all.order(snippet_view_count: :desc)
+    puts @snippets.first
+    puts "Snippet ID here"
   end
+
+  # Shiung's addition
+  # Copying from UsersController
 
   # GET /snippets/1
   # GET /snippets/1.json
@@ -18,9 +23,9 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
-    puts params[:user_email]
-    @snippetuser = User.find_by(email: cookies[:user_email])
-    puts @snippetuser.email
+    puts cookies[:current_user_email]
+    @snippetuser = User.find_by(email: cookies[:current_user_email])
+    # puts @snippetuser.email
   end
 
   # GET /snippets/1/edit
@@ -39,7 +44,9 @@ class SnippetsController < ApplicationController
     # @snippetuser = User.find_by(email: params[:user_email])
     # puts @snippetuser.email
     # @snippet = Snippet.new(snippet_params)
-    @snippetuser = User.find_by(email: cookies[:user_email])
+
+    @snippetuser = User.find_by(email: cookies[:current_user_email])
+
     @snippet = @snippetuser.snippets.create(snippet_params)
 
     respond_to do |format|
