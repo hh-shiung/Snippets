@@ -27,6 +27,7 @@ class UsersController < ApplicationController
       end
     else
         if(!session.has_key?("current_user_email"))
+          flash[:invaliduser] = "Please login"
             redirect_to "/login" and return
         end
     end
@@ -44,6 +45,7 @@ class UsersController < ApplicationController
     puts "Clear sessions"
     session.clear
     puts session[:current_user_email]
+    flash[:invaliduser] = "You've logged out from RoRSnippet"
     redirect_to "/login"
   end
 
