@@ -18,27 +18,19 @@ class UsersController < ApplicationController
     cookies[:current_user_email] = params[:email]
 
     @personaluserid =  User.find_by(email: cookies[:current_user_email])
-    puts @personaluserid.username
     cookies[:current_username] = @personaluserid.username
-    puts @personaluserid.avatar
     cookies[:current_avatar] = @personaluserid.avatar
-
-
     end
 
     if(User.exists?(email: cookies[:current_user_email]))
-      # Do nothing. Continue
+      @welcomemsg = "Welcome #{cookies[:current_user_email]}"
+      @snippets = Snippet.all.order(snippet_view_count: :desc)
+  		render template: 'landing/index'
     else
       # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
       flash[:invaliduser] = "Invalid Email and/or Password."
       redirect_to "/login" and return
     end
-
-
-    @welcomemsg = "Welcome #{cookies[:current_user_email]}"
-
-    @snippets = Snippet.all.order(snippet_view_count: :desc)
-		render template: 'landing/index'
 	end
 
   def showLogin
@@ -53,20 +45,15 @@ class UsersController < ApplicationController
     puts cookies[:current_user_email]
 
     @personaluserid =  User.find_by(email: cookies[:current_user_email])
-    puts @personaluserid.email
-    puts @personaluserid.username
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
     render template: 'users/personal'
   end
 
   def showFav
-    @username =
-
     render template: 'favorites/fav'
   end
 
   def showPerformance
-
     render template: 'users/performance'
   end
 
@@ -106,7 +93,7 @@ class UsersController < ApplicationController
     @input_first_name = params[:first_name]
     @input_last_name = params[:last_name]
     @xxx = "XXX"
-    render status: 200, plain: @xxx 
+    render status: 200, plain: @xxx
     # render template: 'test/blank'
   end
 
