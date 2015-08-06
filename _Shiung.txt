@@ -110,5 +110,10 @@ Adding Impressionist gem for page counting.
 == Log 11 ==
 Configured Users _form to have password and email fields.
 Hid Password of Users on users_index.
+Tweaked Snippet/View Index, Show, and Edit.
+Aligned with main project.
+Commented out links on dashboard that did not work.
+  Footer go to top link.
+  Profile Pic link.
 
 TODO: Make sure the Snippet creation process has no errors.
