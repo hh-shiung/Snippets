@@ -23,15 +23,13 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     if(session.has_key?("current_user_email"))
-    @snippet = Snippet.new
-    @snippetuser = User.find_by(email: session[:current_user_email])
-    puts @snippetuser.email
-  else
-    flash[:invaliduser] = "Please login."
-    redirect_to "/login"
-  end
-
-
+      @snippet = Snippet.new
+      @snippetuser = User.find_by(email: session[:current_user_email])
+      puts @snippetuser.email
+    else
+      flash[:invaliduser] = "Please login."
+      redirect_to "/login"
+    end
   end
 
   # GET /snippets/1/edit
