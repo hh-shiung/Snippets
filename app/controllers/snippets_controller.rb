@@ -1,5 +1,8 @@
 class SnippetsController < ApplicationController
+  # Switches to use snippet_layout.html.erb instead of application.html.erb
+  layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  impressionist :actions => [:show, :index]
 
   # GET /snippets
   # GET /snippets.json
@@ -15,9 +18,9 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
-    puts params[:user_email]
-    @snippetuser = User.find_by(email: params[:user_email])
-    puts @snippetuser.email
+    # puts params[:user_email]
+    # @snippetuser = User.find_by(email: params[:user_email])
+    # puts @snippetuser.email
   end
 
   # GET /snippets/1/edit
@@ -28,11 +31,13 @@ class SnippetsController < ApplicationController
   # POST /snippets.json
   def create
     # Associate User to Snippets
+
     # puts params[:user_email]
     # @user = User.find_by(email: params[:user_email])
     # puts @user.first.email
-
     @snippetuser = User.find_by(email: params[:user_email])
+    # puts params[:user_email]
+    # @snippetuser = User.find_by(email: params[:user_email])
     # puts @snippetuser.email
     @snippet = @snippetuser.snippets.create(snippet_params)
     # @snippet = Snippet.new(snippet_params)

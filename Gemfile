@@ -1,17 +1,24 @@
 source 'https://rubygems.org'
 
 ruby "2.2.2"
-#Gem let you win la
+
+# Jason's gems
+# Gem let you win la
 gem 'thin'
 gem 'faker'
 gem 'guard'
-#Dylan's gem
 
+# Dylan's gem
 # Flexible authentication solution
 gem 'devise'
 # Easy file attachment management for Active Record
 gem 'paperclip', '~>4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+# Shiung's gems
+# For page counts
+gem 'impressionist'
+
 
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record

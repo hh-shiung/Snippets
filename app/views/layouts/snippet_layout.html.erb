@@ -7,14 +7,17 @@
   <meta property="og:description" content = "Serving freshly made Ruby on Rail snippets since 2015">
 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	
 	<%= csrf_meta_tags %>
-	<%= javascript_tag "const AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
 </head>
 
 <body>
-
-<%= yield %>
-
+<div class="container">
+  <%= yield %>
+  <footer class="site-footer navbar-fixed-bottom">
+    <div class="text-right">
+      Copyright © 2015 RoR Snippets
+    </div>
+  </footer>
+</div>
 </body>
 </html>

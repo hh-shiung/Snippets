@@ -1,24 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Snippet title:</strong>
-  <%= @snippet.snippet_title %>
-</p>
+<h1><%= @snippet.snippet_title %></h1>
 
-<p>
-  <strong>Snippet description:</strong>
-  <%= @snippet.snippet_description %>
-</p>
+<table class="table">
+  <thead>
+    <th class="col-md-2"><h2>Snippet</h2></th>
+    <th class="col-md-10"><h2>Description</h2></th>
+  </thead>
 
-<p>
-  <strong>Snippet content:</strong>
-  <%= @snippet.snippet_content %>
-</p>
+  <tbody>
+    <td class="col-md-2"><%= @snippet.snippet_content %></td>
+    <td class="col-md-10"><%= @snippet.snippet_description %></td>
+  </tbody>
+</table>
 
-<!-- <p>
-  <strong>Snippet view count:</strong>
-  <%# @snippet.snippet_view_count %>
-</p>
-
-<%= link_to 'Edit', edit_snippet_path(@snippet) %> | -->
+<!-- <%#= link_to 'Edit', edit_snippet_path(@snippet) %> | -->
 <%= link_to 'Back', "/index" %>

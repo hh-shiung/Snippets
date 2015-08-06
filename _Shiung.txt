@@ -93,3 +93,22 @@ Merged in updates from remote branch.
 150731
 == Log 8 ==
 Merged things into the new file. Updated things with the remote branch.
+
+150803
+== Log 9 ==
+Remove all printed errors.
+All available links/buttons must be working.
+
+150804
+== Log 10 ==
+Configured outlook of Snippets
+  <div class="footer navbar-fixed-bottom"> to keep the footer bar down.
+
+Adding Impressionist gem for page counting.
+
+150805
+== Log 11 ==
+Configured Users _form to have password and email fields.
+Hid Password of Users on users_index.
+
+TODO: Make sure the Snippet creation process has no errors.
