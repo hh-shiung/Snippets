@@ -14,7 +14,16 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
     if (params[:email] != nil)
-      cookies[:current_user_email] = params[:email]
+
+    cookies[:current_user_email] = params[:email]
+
+    @personaluserid =  User.find_by(email: cookies[:current_user_email])
+    puts @personaluserid.username
+    cookies[:current_username] = @personaluserid.username
+    puts @personaluserid.avatar
+    cookies[:current_avatar] = @personaluserid.avatar
+
+
     end
 
     if(User.exists?(email: cookies[:current_user_email]))
@@ -24,6 +33,7 @@ class UsersController < ApplicationController
       flash[:invaliduser] = "Invalid Email and/or Password."
       redirect_to "/login" and return
     end
+
 
     @welcomemsg = "Welcome #{cookies[:current_user_email]}"
 
@@ -50,10 +60,13 @@ class UsersController < ApplicationController
   end
 
   def showFav
+    @username =
+
     render template: 'favorites/fav'
   end
 
   def showPerformance
+
     render template: 'users/performance'
   end
 
