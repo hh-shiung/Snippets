@@ -5,3 +5,8 @@
 - Added Error notice if user did not exist when they tried to login, using flash[:invaliduser] in login form
 - BUG : Use cookies instead of params in ShowIndex
 - BUG : Fixed bug to use params first then only cookie
+
+6th August - 11:50
+- Cleaned up code in user_controller
+- Removed extra password field from previous merge in new users page
+- Formatted the page to the correct order as previous merge has scrambled the control order in new user page
