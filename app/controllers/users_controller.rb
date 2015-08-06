@@ -21,17 +21,16 @@ class UsersController < ApplicationController
         cookies[:current_username] = @personaluserid.username
         cookies[:current_avatar] = @personaluserid.avatar
 
-        @welcomemsg = "Welcome #{cookies[:current_user_email]}"
-        @snippets = Snippet.all.order(snippet_view_count: :desc)
-        render template: 'landing/index'
       else
         # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
         flash[:invaliduser] = "Invalid Email and/or Password."
         redirect_to "/login" and return
       end
-
     end
 
+    @welcomemsg = "Welcome #{cookies[:current_user_email]}"
+    @snippets = Snippet.all.order(snippet_view_count: :desc)
+    render template: 'landing/index'
 
 	end
 
