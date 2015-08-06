@@ -14,24 +14,6 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
 
-    if(params[:email] != nil && params[:password] != nil)
-      if(User.exists?(email: params[:email], password: params[:password]))
-        session.clear
-        session[:current_user_email] = params[:email]
-        @personaluserid =  User.find_by(email: params[:email])
-        session[:current_username] = @personaluserid.username
-        session[:current_avatar] = @personaluserid.avatar
-      else
-        flash[:invaliduser] = "Invalid Email and/or Password."
-        redirect_to "/login" and return
-      end
-    else
-        if(!session.has_key?("current_user_email"))
-          flash[:invaliduser] = "Please login"
-            redirect_to "/login" and return
-        end
-    end
-
     @welcomemsg = "Welcome #{session[:current_user_email]}"
     @snippets = Snippet.all.order(snippet_view_count: :desc)
     render template: 'landing/index'
@@ -121,6 +103,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    puts "Alert"
+    puts session[:alert]
   end
 
   # GET /users/1/edit
@@ -133,9 +117,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:notice] = "Thank you for registering. Please check your inbox for confirmation email."
     redirect_to "/login"
+    else
+      puts @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages
+      puts flash[:alert]
+      redirect_to "/register"
     end
   end
+
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
