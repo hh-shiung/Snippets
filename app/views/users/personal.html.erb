@@ -37,8 +37,8 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="">
 
-                  <p class="centered"><a href="profile.html"><img src="<%= cookies[:current_avatar] %>" class="img-circle" width="60"></a></p>
-                  <h5 class="centered"><%= cookies[:current_username] %></h5>
+                  <p class="centered"><a href="profile.html"><img src="<%= session[:current_avatar] %>" class="img-circle" width="60"></a></p>
+                  <h5 class="centered"><%= session[:current_username] %></h5>
 
                   <li class="mt">
                       <a href="/index">
@@ -67,17 +67,23 @@
                       </a>
                   </li> -->
                   <li class="sub-menu">
+                      <a href="/logout" >
+                          <i class="fa fa-bar-chart-o"></i>
+                          <span>Logout</span>
+                      </a>
+                  </li>
+                  <!-- <li class="sub-menu">
                       <a href="#" class="test">
                           <i class="fa fa-cogs"></i>
                           <span>Settings</span>
                       </a>
                       <ul class="sub">
-<!--                           <li><a href="#"><i class="fa fa-level-up"></i>Upgrade</a></li>
+                           <li><a href="#"><i class="fa fa-level-up"></i>Upgrade</a></li>
                           <li><a href="#"><i class="fa fa-key"></i>Change Password</a></li>
-                          <li><a href="#"><i class="fa fa-ban"></i>Deactivate Account</a></li> -->
-                          <li><a href="/login"><i class="fa fa-sign-out"></i>Logout</a></li>
+                          <li><a href="#"><i class="fa fa-ban"></i>Deactivate Account</a></li>
+                          <li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                       </ul>
-                  </li>
+                  </li> -->
               </ul>
               <!-- sidebar menu end-->
           </div>

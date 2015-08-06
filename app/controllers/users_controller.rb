@@ -13,22 +13,26 @@ class UsersController < ApplicationController
   def showIndex
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
-    if (params[:email] != nil)
-      if(User.exists?(email: params[:email]))
 
-        cookies[:current_user_email] = params[:email]
-        @personaluserid =  User.find_by(email: cookies[:current_user_email])
-        cookies[:current_username] = @personaluserid.username
-        cookies[:current_avatar] = @personaluserid.avatar
-
+    if(session.has_key?("current_user_email"))
+      # Do nothing
+      puts session[:current_user_email]
+    elsif(params[:email] != nil)
+      puts params[:email]
+      if(User.exists?(email: params[:email], password: params[:password]))
+        session[:current_user_email] = params[:email]
+        @personaluserid =  User.find_by(email: params[:email])
+        session[:current_username] = @personaluserid.username
+        session[:current_avatar] = @personaluserid.avatar
       else
-        # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
         flash[:invaliduser] = "Invalid Email and/or Password."
         redirect_to "/login" and return
       end
+    else
+      redirect_to "/login" and return
     end
 
-    @welcomemsg = "Welcome #{cookies[:current_user_email]}"
+    @welcomemsg = "Welcome #{session[:current_user_email]}"
     @snippets = Snippet.all.order(snippet_view_count: :desc)
     render template: 'landing/index'
 
@@ -38,14 +42,21 @@ class UsersController < ApplicationController
     render template: 'users/login'
   end
 
+  def showLogout
+    puts "Clear sessions"
+    session.clear
+    puts session[:current_user_email]
+    redirect_to "/login"
+  end
+
   def showLock
     render template: 'users/lock_screen'
   end
 
   def showPersonal
-    puts cookies[:current_user_email]
+    puts session[:current_user_email]
 
-    @personaluserid =  User.find_by(email: cookies[:current_user_email])
+    @personaluserid =  User.find_by(email: session[:current_user_email])
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
     render template: 'users/personal'
   end
