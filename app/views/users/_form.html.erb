@@ -76,7 +76,7 @@
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <div class="actions pull-left">
-        <button id="return_login" type="button">Back to Login</button>
+        <button id="return_login" type="button">Back to Home</button>
       </div>
     </div>
 
@@ -112,6 +112,6 @@
 <script>
   $.backstretch("<%= image_path("img/login-bg.jpg") %>", {speed: 500});
   $('#return_login').click(function (){
-    window.location.replace("http://rorsnippet.herokuapp.com/login");
+    window.location.replace("http://rorsnippet.herokuapp.com/");
   });
 </script>

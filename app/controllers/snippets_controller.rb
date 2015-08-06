@@ -31,7 +31,6 @@ class SnippetsController < ApplicationController
     flash[:invaliduser] = "You must be logged in to access this section."
     redirect_to "/login"
   end
-
   end
 
   # GET /snippets/1/edit
