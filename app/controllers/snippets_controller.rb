@@ -23,9 +23,10 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
-    puts cookies[:current_user_email]
-    @snippetuser = User.find_by(email: cookies[:current_user_email])
-    # puts @snippetuser.email
+    puts params[:user_email]
+    @snippetuser = User.find_by(email: session[:user_email])
+    puts @snippetuser.email
+
   end
 
   # GET /snippets/1/edit
@@ -44,7 +45,7 @@ class SnippetsController < ApplicationController
     # @snippetuser = User.find_by(email: params[:user_email])
     # puts @snippetuser.email
     # @snippet = Snippet.new(snippet_params)
-    @snippetuser = User.find_by(email: cookies[:current_user_email])
+    @snippetuser = User.find_by(email: session[:user_email])
     @snippet = @snippetuser.snippets.create(snippet_params)
 
     respond_to do |format|
