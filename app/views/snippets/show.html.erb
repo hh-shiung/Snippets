@@ -16,7 +16,16 @@
 <!-- <%#= link_to 'Back', "/index" %> -->
 
 <!-- HACK: Redirects to Heroku Dashboard page of the Application -->
-<button class="return_to_dashboard">Back</button>
+<div class="row">
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="actions pull-left">
+      <%= button_to "Back to Home", "/index", :method => :get %>
+      <!-- <button id="return_login" type="button">Back to Home</button> -->
+    </div>
+  </div>
+
+</div>
 
 <script>
 $('.return_to_dashboard').click(function(){
