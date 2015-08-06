@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-
+  before_action :authenticate_user!
   # GET /users
   # GET /users.json
   def index
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
 
   def showPersonal
     puts session[:current_user_email]
-
+    puts "showPersonal"
     @personaluserid =  User.find_by(email: session[:current_user_email])
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
     render template: 'users/personal'
@@ -135,17 +134,6 @@ class UsersController < ApplicationController
     if @user.save
     redirect_to "/login"
     end
-
-    # respond_to do |format|
-    #   if @user.save
-    #     # format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #     # format.json { render :show, status: :created, location: @user }
-    #     render template: 'users/login'
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /users/1
