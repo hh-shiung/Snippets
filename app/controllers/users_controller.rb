@@ -14,23 +14,25 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
     if (params[:email] != nil)
+      if(User.exists?(email: params[:email]))
 
-    cookies[:current_user_email] = params[:email]
+        cookies[:current_user_email] = params[:email]
+        @personaluserid =  User.find_by(email: cookies[:current_user_email])
+        cookies[:current_username] = @personaluserid.username
+        cookies[:current_avatar] = @personaluserid.avatar
 
-    @personaluserid =  User.find_by(email: cookies[:current_user_email])
-    cookies[:current_username] = @personaluserid.username
-    cookies[:current_avatar] = @personaluserid.avatar
+        @welcomemsg = "Welcome #{cookies[:current_user_email]}"
+        @snippets = Snippet.all.order(snippet_view_count: :desc)
+        render template: 'landing/index'
+      else
+        # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
+        flash[:invaliduser] = "Invalid Email and/or Password."
+        redirect_to "/login" and return
+      end
+
     end
 
-    if(User.exists?(email: cookies[:current_user_email]))
-      @welcomemsg = "Welcome #{cookies[:current_user_email]}"
-      @snippets = Snippet.all.order(snippet_view_count: :desc)
-  		render template: 'landing/index'
-    else
-      # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
-      flash[:invaliduser] = "Invalid Email and/or Password."
-      redirect_to "/login" and return
-    end
+
 	end
 
   def showLogin
