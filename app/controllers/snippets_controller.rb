@@ -8,7 +8,12 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   def index
     @snippets = Snippet.all.order(snippet_view_count: :desc)
+    puts @snippets.first
+    puts "Snippet ID here"
   end
+
+  # Shiung's addition
+  # Copying from UsersController
 
   # GET /snippets/1
   # GET /snippets/1.json
@@ -21,6 +26,7 @@ class SnippetsController < ApplicationController
     puts params[:user_email]
     @snippetuser = User.find_by(email: session[:user_email])
     puts @snippetuser.email
+
   end
 
   # GET /snippets/1/edit
