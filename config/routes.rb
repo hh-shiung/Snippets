@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get '/confirmation/:token' , to: 'users#verifyToken'
   get '/test' => 'users#sendEmail'
   post '/getinput' => 'users#getinput'
+  post '/forgotpw' => 'users#forgotPW'
 
 end

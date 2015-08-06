@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     if(User.exists?(email: cookies[:current_user_email]))
       # Do nothing. Continue
     else
-      flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
+      # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
+      flash[:invaliduser] = "Invalid Email and/or Password."
       redirect_to "/login" and return
     end
 
@@ -91,8 +92,13 @@ class UsersController < ApplicationController
     @input_password = params[:password]
     @input_first_name = params[:first_name]
     @input_last_name = params[:last_name]
+    @xxx = "XXX"
+    render status: 200, plain: @xxx 
+    # render template: 'test/blank'
+  end
 
-    render template: 'test/blank'
+  def forgotPW
+
   end
   # GET /users/1
   # GET /users/1.json
