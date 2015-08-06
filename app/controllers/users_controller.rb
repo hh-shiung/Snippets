@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :auth_user
+  skip_before_action :auth_user, only: [:new, :create, :showLogin]
   # GET /users
   # GET /users.json
   def index
@@ -161,6 +162,26 @@ class UsersController < ApplicationController
   end
 
   private
+  def auth_user
+    if(params[:email] != nil && params[:password] != nil)
+      if(User.exists?(email: params[:email], password: params[:password]))
+        session.clear
+        session[:current_user_email] = params[:email]
+        @personaluserid =  User.find_by(email: params[:email])
+        session[:current_username] = @personaluserid.username
+        session[:current_avatar] = @personaluserid.avatar
+      else
+        flash[:invaliduser] = "Invalid Email and/or Password."
+        redirect_to "/login" and return
+      end
+    else
+        if(!session.has_key?("current_user_email"))
+          flash[:invaliduser] = "You must be logged in to access this section."
+            redirect_to "/login" and return
+        end
+    end
+
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

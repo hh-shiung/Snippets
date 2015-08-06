@@ -2,7 +2,7 @@ class SnippetsController < ApplicationController
   # Switches to use snippet_layout.html.erb instead of application.html.erb
   layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :auth_user
   # impressionist :actions => [:show, :index]
 
   # GET /snippets
@@ -82,14 +82,12 @@ class SnippetsController < ApplicationController
   end
 
   private
-    def auth_user
-      puts "auth_user"
-      if(!session.has_key?("current_user_email"))
-        flash[:invaliduser] = "You must be logged in to access this section"
-        redirect_to "/login"
-      end
+  def auth_user
+    if(!session.has_key?("current_user_email"))
+      flash[:invaliduser] = "You must be logged in to access this section."
+        redirect_to "/login" and return
     end
-
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_snippet
       @snippet = Snippet.find(params[:id])
