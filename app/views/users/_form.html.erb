@@ -17,6 +17,7 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <div class="field">
@@ -33,6 +34,7 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <div class="field">
@@ -47,6 +49,7 @@
       <%= f.text_field :last_name %>
     </div>
     </div>
+
   </div>
 
   <div class="row">
@@ -98,8 +101,8 @@
 <% end %>
 
 <script>
-$.backstretch("<%= image_path("img/login-bg.jpg") %>", {speed: 500});
-$('#return_login').click(function (){
-  window.location.replace("http://rorsnippet.herokuapp.com/login");
-});
+  $.backstretch("<%= image_path("img/login-bg.jpg") %>", {speed: 500});
+  $('#return_login').click(function (){
+    window.location.replace("http://rorsnippet.herokuapp.com/login");
+  });
 </script>
