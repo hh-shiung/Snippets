@@ -14,12 +14,9 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
 
-    if(session.has_key?("current_user_email"))
-      # Do nothing
-      puts session[:current_user_email]
-    elsif(params[:email] != nil)
-      puts params[:email]
+    if(params[:email] != nil && params[:password] != nil)
       if(User.exists?(email: params[:email], password: params[:password]))
+        session.clear
         session[:current_user_email] = params[:email]
         @personaluserid =  User.find_by(email: params[:email])
         session[:current_username] = @personaluserid.username
@@ -29,13 +26,14 @@ class UsersController < ApplicationController
         redirect_to "/login" and return
       end
     else
-      redirect_to "/login" and return
+        if(!session.has_key?("current_user_email"))
+            redirect_to "/login" and return
+        end
     end
 
     @welcomemsg = "Welcome #{session[:current_user_email]}"
     @snippets = Snippet.all.order(snippet_view_count: :desc)
     render template: 'landing/index'
-
 	end
 
   def showLogin
