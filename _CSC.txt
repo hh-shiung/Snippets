@@ -1,7 +1,7 @@
-Hi there,
-
-This is a testing file. No need to pay attention to this file. Thank you.
-
-I've made some changes in this file and checking into WIP.
-
-19 July - Testing another changes for WIP
+5th August - 15:33
+- Linked "Back" button from "Show" in Snippets to User Dashboard
+- Hide "Snippet View Count" and "Edit" in Snippets "Show" page
+- Added Authentication method in user dashboard. Check if User.exists?
+- Added Error notice if user did not exist when they tried to login, using flash[:invaliduser] in login form
+- BUG : Use cookies instead of params in ShowIndex
+- BUG : Fixed bug to use params first then only cookie
