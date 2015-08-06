@@ -2,7 +2,7 @@ class SnippetsController < ApplicationController
   # Switches to use snippet_layout.html.erb instead of application.html.erb
   layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
-  impressionist :actions => [:show, :index]
+  # impressionist :actions => [:show, :index]
 
   # GET /snippets
   # GET /snippets.json
