@@ -116,9 +116,11 @@ Commented out links on dashboard that did not work.
   Footer go to top link.
   Profile Pic link.
 
-TODO: Make sure the Snippet creation process has no errors.
+DONE: Make sure the Snippet creation process has no errors.
 
 150806
 == Log 12 ==
 Configured linking of Snippet table to User table correctly with a Foreign Key connect.
 Updated Location and Routing of Snippets in the application.
+
+TODO: Beautify Snippet related stuff.

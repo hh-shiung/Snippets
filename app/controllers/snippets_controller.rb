@@ -23,9 +23,9 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
-    puts params[:current_user_email]
     @snippetuser = User.find_by(email: session[:current_user_email])
-    # puts @snippetuser.email
+    puts @snippetuser.email
+
 
   end
 
