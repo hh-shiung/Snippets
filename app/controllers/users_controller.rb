@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     puts @users.first.id
-    puts "User ID hEre"
+    puts "User ID here"
   end
 
   def showIndex
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @welcomemsg = "Welcome #{session[:current_user_email]}"
     @snippets = Snippet.all.order(snippet_view_count: :desc)
     render template: 'landing/index'
-	end
+  end
 
   def showLogin
     render template: 'users/login'
