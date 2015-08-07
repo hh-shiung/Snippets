@@ -124,3 +124,7 @@ Configured linking of Snippet table to User table correctly with a Foreign Key c
 Updated Location and Routing of Snippets in the application.
 
 TODO: Beautify Snippet related stuff.
+
+150807
+== Log 13 ==
+Updated text_field of User/View/_form to email_field.
