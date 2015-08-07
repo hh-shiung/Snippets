@@ -126,7 +126,7 @@ Updated Location and Routing of Snippets in the application.
 150807
 == Log 13 ==
 Updated text_field of User/View/_form to email_field.
-Formated code and updated context of Landing Page for better readability.
+Formatted code and updated context of Landing Page for better readability.
 Set up external links to social sites represented by the logos at the bottom of the Landing Page.
 
 TODO: Beautify Snippet related stuff.
