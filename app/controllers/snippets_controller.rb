@@ -2,6 +2,7 @@ class SnippetsController < ApplicationController
   # Switches to use snippet_layout.html.erb instead of application.html.erb
   layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  before_action :auth_user
   # impressionist :actions => [:show, :index]
 
   # GET /snippets
@@ -23,13 +24,13 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     if(session.has_key?("current_user_email"))
-      @snippet = Snippet.new
-      @snippetuser = User.find_by(email: session[:current_user_email])
-      puts @snippetuser.email
-    else
-      flash[:invaliduser] = "Please login."
-      redirect_to "/login"
-    end
+    @snippet = Snippet.new
+    @snippetuser = User.find_by(email: session[:current_user_email])
+    puts @snippetuser.email
+  else
+    flash[:invaliduser] = "You must be logged in to access this section."
+    redirect_to "/login"
+  end
   end
 
   # GET /snippets/1/edit
@@ -41,13 +42,6 @@ class SnippetsController < ApplicationController
   def create
     # Associate User to Snippets
 
-    # puts params[:user_email]
-    # @user = User.find_by(email: params[:user_email])
-    # puts @user.first.email
-    # puts params[:user_email]
-    # @snippetuser = User.find_by(email: params[:user_email])
-    # puts @snippetuser.email
-    # @snippet = Snippet.new(snippet_params)
     @snippetuser = User.find_by(email: session[:current_user_email])
     @snippet = @snippetuser.snippets.create(snippet_params)
 
@@ -87,6 +81,12 @@ class SnippetsController < ApplicationController
   end
 
   private
+  def auth_user
+    if(!session.has_key?("current_user_email"))
+      flash[:invaliduser] = "You must be logged in to access this section."
+        redirect_to "/login" and return
+    end
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_snippet
       @snippet = Snippet.find(params[:id])
