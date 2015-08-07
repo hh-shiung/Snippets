@@ -40,7 +40,8 @@ class UsersController < ApplicationController
     puts "Clear sessions"
     session.clear
     puts session[:current_user_email]
-    flash[:invaliduser] = "You've logged out from RoRSnippet"
+    # flash[:invaliduser] = "You've logged out from RoRSnippet"
+    flash[:notice] = "You've logged out from RoRSnippet"
     redirect_to "/login"
   end
 
@@ -175,12 +176,14 @@ class UsersController < ApplicationController
         session[:current_username] = @personaluserid.username
         session[:current_avatar] = @personaluserid.avatar
       else
-        flash[:invaliduser] = "Invalid Email and/or Password."
+        # flash[:invaliduser] = "Invalid Email and/or Password."
+        flash[:alert] = "Invalid Email and/or Password."
         redirect_to "/login" and return
       end
     else
         if(!session.has_key?("current_user_email"))
-          flash[:invaliduser] = "You must be logged in to access this section."
+          # flash[:invaliduser] = "You must be logged in to access this section."
+          flash[:alert] = "You must be logged in to access this section."
             redirect_to "/login" and return
         end
     end
