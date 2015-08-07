@@ -1,5 +1,6 @@
 class SnippetsController < ApplicationController
   # Switches to use snippet_layout.html.erb instead of application.html.erb
+  require 'coderay'
   layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
@@ -19,6 +20,7 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
+    @snippet.snippet_content = CodeRay.scan(@snippet.snippet_content, :ruby).div(:line_numbers => :table)
   end
 
   # GET /snippets/new
