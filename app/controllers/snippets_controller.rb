@@ -30,7 +30,7 @@ class SnippetsController < ApplicationController
     @snippetuser = User.find_by(email: session[:current_user_email])
     puts @snippetuser.email
   else
-    flash[:invaliduser] = "You must be logged in to access this section."
+    flash[:alert] = "You must be logged in to access this section."
     redirect_to "/login"
   end
   end
@@ -85,7 +85,7 @@ class SnippetsController < ApplicationController
   private
   def auth_user
     if(!session.has_key?("current_user_email"))
-      flash[:invaliduser] = "You must be logged in to access this section."
+      flash[:alert] = "You must be logged in to access this section."
         redirect_to "/login" and return
     end
   end

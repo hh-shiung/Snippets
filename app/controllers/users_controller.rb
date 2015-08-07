@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
   skip_before_action :auth_user, only: [:new, :create, :showLogin]
+  skip_before_filter :verify_authenticity_token, :only => [:index, :show, :showIndex]
   before_filter :check_for_cancel, :only => [:create, :update]
   # GET /users
   # GET /users.json
@@ -54,6 +55,8 @@ class UsersController < ApplicationController
     puts "showPersonal"
     @personaluserid =  User.find_by(email: session[:current_user_email])
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
+
+    @welcomemsg = "This is your personal snippets collection"
     render template: 'users/personal'
   end
 
