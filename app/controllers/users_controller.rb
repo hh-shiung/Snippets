@@ -2,12 +2,25 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
   skip_before_action :auth_user, only: [:new, :create, :showLogin]
+  before_filter :check_for_cancel, :only => [:create, :update]
   # GET /users
   # GET /users.json
   def index
     @users = User.all
     puts @users.first.id
     puts "User ID hEre"
+  end
+
+  def check_for_cancel
+    puts "Entering Cancel"
+  if params.key?("cancel")
+    puts "Cancel"
+    redirect_to "/"
+  end
+  end
+
+  def Home
+    redirect_to "/"
   end
 
   def showIndex
