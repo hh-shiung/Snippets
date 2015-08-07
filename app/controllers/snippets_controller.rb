@@ -1,5 +1,6 @@
 class SnippetsController < ApplicationController
   # Switches to use snippet_layout.html.erb instead of application.html.erb
+  require 'coderay'
   layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
@@ -19,6 +20,7 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
+    @snippet.snippet_content = CodeRay.scan(@snippet.snippet_content, :ruby).div(:line_numbers => :table)
   end
 
   # GET /snippets/new
@@ -28,7 +30,7 @@ class SnippetsController < ApplicationController
     @snippetuser = User.find_by(email: session[:current_user_email])
     puts @snippetuser.email
   else
-    flash[:invaliduser] = "You must be logged in to access this section."
+    flash[:alert] = "You must be logged in to access this section."
     redirect_to "/login"
   end
   end
@@ -47,7 +49,7 @@ class SnippetsController < ApplicationController
 
     respond_to do |format|
       if @snippet.save
-        format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
+        format.html { redirect_to @snippet }
         format.json { render :show, status: :created, location: @snippet }
       else
         format.html { render :new }
@@ -83,7 +85,7 @@ class SnippetsController < ApplicationController
   private
   def auth_user
     if(!session.has_key?("current_user_email"))
-      flash[:invaliduser] = "You must be logged in to access this section."
+      flash[:alert] = "You must be logged in to access this section."
         redirect_to "/login" and return
     end
   end

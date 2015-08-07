@@ -76,7 +76,9 @@
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <div class="actions pull-left">
-        <%= button_to "Back to Home", "/", :method => :get %>
+       <!-- <%# link_to "Cancel", user_home_path %> -->
+        <!-- <%# link_to "Cancel", :method => :get, type="button" %> -->
+        <%= link_to "Cancel", root_url, :class => "button" %>
         <!-- <button id="return_login" type="button">Back to Home</button> -->
       </div>
     </div>

@@ -19,7 +19,7 @@
       <header class="header black-bg">
 
             <!--logo start-->
-            <a href="index.html" class="logo"><b>ror snippets</b></a>
+            <a href="index.html" class="logo"><b>RoR Snippets</b></a>
             <!--logo end-->
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
@@ -68,7 +68,7 @@
                   </li> -->
                   <li class="sub-menu">
                       <a href="/logout" >
-                          <i class="fa fa-bar-chart-o"></i>
+                          <i class="fa fa-sign-out"></i>
                           <span>Logout</span>
                       </a>
                   </li>
@@ -100,6 +100,9 @@
             <div class="row mt loading">
               <div class="col-lg-12">
                 <h2 style="color:black"><%= @welcomemsg %></h2>
+                <h2>
+                  <%= link_to 'Create Snippet', new_snippet_path, class:"btn btn-default", type:"button" %>
+                </h2>
                 <% if(@personalsnippets.blank?) %>
                 <h4 style="color:black">You have not created any snippets.</h4>
                 <% else %>
@@ -115,9 +118,8 @@
                   <tbody>
                     <% @personalsnippets.each do |snippet| %>
                       <tr>
-                        <td colspan="3"><%= snippet.snippet_title %></td>
+                        <td colspan="3"><%= link_to snippet.snippet_title, snippet %></td>
                         <td colspan="3"><%= snippet.snippet_description %></td>
-                        <td colspan="3"><%= link_to 'Show', snippet %></td>
                         <!-- <td><% link_to 'Edit', edit_snippet_path(snippet) %></td>
                         <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                       </tr>

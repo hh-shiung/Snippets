@@ -16,13 +16,13 @@
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
-      <!-- <header class="header black-bg">
-        <a href="index.html" class="logo"><b>This will be the main navi bar -Home- -SignUp- -Login-</b></a>
+      <header class="header black-bg">
+        <a href="index.html" class="logo"><b>RoR Snippets</b></a>
         <div class="top-menu">
           <ul class="nav pull-right top-menu">
           </ul>
         </div>
-      </header> -->
+      </header>
       <!--header end-->
 
       <!-- **********************************************************************************************************************************************************
@@ -63,7 +63,7 @@
 
                   <li class="sub-menu">
                       <a href="/logout" >
-                          <i class="fa fa-bar-chart-o"></i>
+                          <i class="fa fa-sign-out"></i>
                           <span>Logout</span>
                       </a>
                   </li>
@@ -111,9 +111,9 @@
               <tbody>
                 <% @snippets.each do |snippet| %>
                   <tr>
-                    <td colspan="3"><%= snippet.snippet_title %></td>
+                    <td colspan="3"><%= link_to snippet.snippet_title, snippet %></td>
                     <td colspan="3"><%= snippet.snippet_description %></td>
-                    <td colspan="3"><%= link_to 'Show', snippet %></td>
+                    <!-- <td colspan="3"><%= link_to snippet.snippet_title, snippet %></td> -->
                     <!-- <td><% link_to 'Edit', edit_snippet_path(snippet) %></td>
                     <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                   </tr>

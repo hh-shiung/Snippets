@@ -2,12 +2,26 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
   skip_before_action :auth_user, only: [:new, :create, :showLogin]
+  skip_before_filter :verify_authenticity_token, :only => [:index, :show, :showIndex]
+  before_filter :check_for_cancel, :only => [:create, :update]
   # GET /users
   # GET /users.json
   def index
     @users = User.all
     puts @users.first.id
     puts "User ID here"
+  end
+
+  def check_for_cancel
+    puts "Entering Cancel"
+  if params.key?("cancel")
+    puts "Cancel"
+    redirect_to "/"
+  end
+  end
+
+  def Home
+    redirect_to "/"
   end
 
   def showIndex
@@ -27,7 +41,8 @@ class UsersController < ApplicationController
     puts "Clear sessions"
     session.clear
     puts session[:current_user_email]
-    flash[:invaliduser] = "You've logged out from RoRSnippet"
+    # flash[:invaliduser] = "You've logged out from RoRSnippet"
+    flash[:notice] = "You've logged out from RoRSnippet"
     redirect_to "/login"
   end
 
@@ -40,6 +55,8 @@ class UsersController < ApplicationController
     puts "showPersonal"
     @personaluserid =  User.find_by(email: session[:current_user_email])
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
+
+    @welcomemsg = "This is your personal snippets collection"
     render template: 'users/personal'
   end
 
@@ -162,12 +179,14 @@ class UsersController < ApplicationController
         session[:current_username] = @personaluserid.username
         session[:current_avatar] = @personaluserid.avatar
       else
-        flash[:invaliduser] = "Invalid Email and/or Password."
+        # flash[:invaliduser] = "Invalid Email and/or Password."
+        flash[:alert] = "Invalid Email and/or Password."
         redirect_to "/login" and return
       end
     else
         if(!session.has_key?("current_user_email"))
-          flash[:invaliduser] = "You must be logged in to access this section."
+          # flash[:invaliduser] = "You must be logged in to access this section."
+          flash[:alert] = "You must be logged in to access this section."
             redirect_to "/login" and return
         end
     end
