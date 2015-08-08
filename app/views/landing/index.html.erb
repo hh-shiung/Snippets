@@ -37,8 +37,12 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="">
 
-                  <p class="centered"><a href="profile.html"><img src="<%= image_path("img/ui-sam.jpg") %>" class="img-circle" width="60"></a></p>
-                  <h5 class="centered">Let You Win lo</h5>
+                  <p class="centered"><a href="profile.html"><img src="<%= cookies[:current_avatar] %>" class="img-circle" width="60"></a></p>
+
+                  <h5 class="centered"><%= cookies[:current_username] %></h5>
+
+
+
 
                   <li class="mt">
                       <a class="active" href="/index">
@@ -54,18 +58,18 @@
                       </a>
                   </li>
 
-                  <li class="sub-menu">
+                  <!-- <li class="sub-menu">
                       <a href="/fav" >
                           <i class="fa fa-heart"></i>
                           <span>Favourite</span>
                       </a>
-                  </li>
-                  <li class="sub-menu">
+                  </li> -->
+                  <!-- <li class="sub-menu">
                       <a href="/performance" >
                           <i class="fa fa-bar-chart-o"></i>
                           <span>Performance</span>
                       </a>
-                  </li>
+                  </li> -->
                   <li class="sub-menu">
                       <a href="#" class="test">
                           <i class="fa fa-cogs"></i>

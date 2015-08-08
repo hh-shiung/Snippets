@@ -14,20 +14,24 @@ class UsersController < ApplicationController
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
     if (params[:email] != nil)
-      cookies[:current_user_email] = params[:email]
-    end
+      if(User.exists?(email: params[:email]))
 
-    if(User.exists?(email: cookies[:current_user_email]))
-      # Do nothing. Continue
-    else
-      flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
-      redirect_to "/login" and return
+        cookies[:current_user_email] = params[:email]
+        @personaluserid =  User.find_by(email: cookies[:current_user_email])
+        cookies[:current_username] = @personaluserid.username
+        cookies[:current_avatar] = @personaluserid.avatar
+
+      else
+        # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
+        flash[:invaliduser] = "Invalid Email and/or Password."
+        redirect_to "/login" and return
+      end
     end
 
     @welcomemsg = "Welcome #{cookies[:current_user_email]}"
-
     @snippets = Snippet.all.order(snippet_view_count: :desc)
-		render template: 'landing/index'
+    render template: 'landing/index'
+
 	end
 
   def showLogin
@@ -42,8 +46,6 @@ class UsersController < ApplicationController
     puts cookies[:current_user_email]
 
     @personaluserid =  User.find_by(email: cookies[:current_user_email])
-    puts @personaluserid.email
-    puts @personaluserid.username
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
     render template: 'users/personal'
   end
@@ -91,8 +93,13 @@ class UsersController < ApplicationController
     @input_password = params[:password]
     @input_first_name = params[:first_name]
     @input_last_name = params[:last_name]
+    @xxx = "XXX"
+    render status: 200, plain: @xxx
+    # render template: 'test/blank'
+  end
 
-    render template: 'test/blank'
+  def forgotPW
+
   end
   # GET /users/1
   # GET /users/1.json

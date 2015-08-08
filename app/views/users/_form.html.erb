@@ -10,26 +10,73 @@
       </ul>
     </div>
   <% end %>
+<div id="register_container">
+  <div class="row">
+    <div class="col-xs6 col-sm-6 col-md-6 col-lg-6">
+      <font size="10em" color="white">Sign Up</font>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username, :required => true %>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="field">
+      <%= f.label :username %><br>
+      <%= f.text_field :username, :required => true, :autofocus => true %>
+    </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email, :required => true %>
+    </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.text_field :password, :required => true, type: "password" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, :required => true %>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="field">
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar %>
+    </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password, :required => true %>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="actions pull-left">
+        <button id="return_login" type="button">Back to Login</button>
+      </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="actions pull-right">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
   <!-- <div class="field">
     <% f.label :is_email_confirm %><br>
@@ -47,11 +94,12 @@
     <%= f.label :token %><br>
     <%= f.text_field :token %>
   </div> -->
-  <div class="field">
-    <%= f.label :avatar %><br>
-    <%= f.file_field :avatar %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+$.backstretch("<%= image_path("img/login-bg.jpg") %>", {speed: 500});
+$('#return_login').click(function (){
+  window.location.replace("http://rorsnippet.herokuapp.com/login");
+});
+</script>
