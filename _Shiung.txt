@@ -132,3 +132,13 @@ Set up external links to social sites represented by the logos at the bottom of 
 TODO: Beautify Snippet related stuff.
   FIX: The routing HACK of the back button.
   TODO: Include side bar navigation.
+
+150808
+== Log 14 ==
+Unable to log in! Used "rails console" to log in!
+Configured side bar and header to show on the Snippets by inserting it into "snippet_layout.html.erb".
+Changed the routing of the "Back" button to Index on Snippet Show and View.
+
+TODO: Make the footer visible immediately when requested.
+TODO: Port view changes to include other components.
+TODO: Ensure that the features remain with the views.
