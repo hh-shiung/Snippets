@@ -1,23 +1,85 @@
 <!DOCTYPE html>
 <html lan="en">
-<head>
-  <title>RoR Snippets</title>
-  <meta property="og:title" content="RoR Snippets">
-  <meta property="og:image" content="<%= image_url("banner.jpg")%>">
-  <meta property="og:description" content = "Serving freshly made Ruby on Rail snippets since 2015">
-	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-</head>
+  <head>
+    <title>RoR Snippets</title>
+    <meta property="og:title" content="RoR Snippets">
+    <meta property="og:image" content="<%= image_url("banner.jpg")%>">
+    <meta property="og:description" content = "Serving freshly made Ruby on Rail snippets since 2015">
+  	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+  </head>
 
-<body>
-<div class="container">
-  <%= yield %>
-  <footer class="site-footer navbar-fixed-bottom">
-    <div class="text-right">
-      Copyright © 2015 RoR Snippets
-    </div>
-  </footer>
-</div>
-</body>
+  <body>
+    <section id="container">
+      <!--header start-->
+      <header class="header black-bg">
+        <a href="index.html" class="logo"><b>RoR Snippets</b></a>
+        <div class="top-menu">
+          <ul class="nav pull-right top-menu">
+          </ul>
+        </div>
+      </header>
+      <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+        <!-- sidebar menu start-->
+        <div id="sidebar"  class="nav-collapse">
+          <ul class="sidebar-menu" id="">
+            <p class="centered"><a href="profile.html"><img src="<%= session[:current_avatar] %>" class="img-circle" width="60"></a></p>
+            <h5 class="centered"><%= session[:current_username] %></h5>
+
+            <li class="mt">
+              <a class="active" href="/index">
+                <i class="fa fa-dashboard"></i>
+                <span>Global Snippets</span>
+              </a>
+            </li>
+
+            <li class="sub-menu">
+              <a href="/personal" >
+                <i class="fa fa-coffee"></i>
+                <span>Personal Snippets</span>
+              </a>
+            </li>
+
+            <li class="sub-menu">
+              <a href="/logout" >
+                <i class="fa fa-sign-out"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- sidebar menu end-->
+      </aside>
+      <!--sidebar end-->
+
+      <!-- main content start -->
+      <secton id="main-content">
+        <div class="wrapper">
+          <div class="row mt loading">
+            <div class="col-lg-12">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </secton>
+      <!-- main content end -->
+
+      <footer class="site-footer navbar-fixed-bottom">
+        <div class="text-center">
+          Copyright © 2015 RoR Snippets
+        </div>
+      </footer>
+    </section>
+
+    <script>
+      $('.test').click(function (){ $('.sub').slideToggle( "fast" ); });
+      $('.go-top').click(function (){ $("html, body").animate({scrollTop: 0}, 500); });
+    </script>
+
+  </body>
 </html>
