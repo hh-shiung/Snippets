@@ -172,16 +172,14 @@ class UsersController < ApplicationController
   def auth_user
     if(params[:email] != nil && params[:password] != nil)
       @verify = User.find_by(email: params[:email])
-      if(!@verify.blank?)
+      if(!@verify.blank? && @verify.valid_password?(params[:password]))
         puts "Password: #{params[:password]}"
         puts "Password check : #{@verify.valid_password?(params[:password])}"
-        if(@verify.valid_password?(params[:password]))
         session.clear
         session[:current_user_email] = params[:email]
         @personaluserid =  User.find_by(email: params[:email])
         session[:current_username] = @personaluserid.username
         session[:current_avatar] = @personaluserid.avatar
-        end
       else
         # flash[:invaliduser] = "Invalid Email and/or Password."
         flash[:alert] = "Invalid Email and/or Password."
