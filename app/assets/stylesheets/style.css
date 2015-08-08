@@ -434,6 +434,7 @@ ul.sidebar-menu li a.active i {
     padding-bottom: 15px;
     padding-top: 0px;
     width: 100%;
+    background-color: #2e2e2e;
 }
 
 a.logo {

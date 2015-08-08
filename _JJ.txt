@@ -230,14 +230,27 @@ banner_ori.jpg is the original
 login-bg.jpg - optimize
 login-bg_ori is the original
 
-Color Codes
-Landing Page
-  Teal #21b2a6
-  Orange #ed4933
-  Purple ##505393
-Footer
-  background-color: rgba(29, 36, 42, 0.9)
+=======================================
+    Color Scheme GUIDE
 
-Dashboard
-  Yellow #ffd777
-  darkblue #424a5d
+    rails guide site
+      red #C52F24
+      gray #222
+      darkred #980905
+      lightred #f1938c
+      firebrick #c52f24
+
+    logo
+      tomatored #ed4545
+      darkerRed #932a2a
+      white #fff
+=======================================
+
+Changed logo - from ROR to logoV2
+Make BG darker abit
+
+Made changes to
+  main.css.erb
+      changed color schemes for sections and icons
+      removed the arrow
+  style.css
