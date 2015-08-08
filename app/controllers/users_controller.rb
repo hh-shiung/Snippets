@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     session.clear
     puts session[:current_user_email]
     # flash[:invaliduser] = "You've logged out from RoRSnippet"
-    flash[:notice] = "You've logged out from RoRSnippet"
+    flash[:notice] = "You have logged out from RoRSnippets"
     redirect_to "/login"
   end
 
@@ -143,7 +143,6 @@ class UsersController < ApplicationController
       redirect_to "/register"
     end
   end
-
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
