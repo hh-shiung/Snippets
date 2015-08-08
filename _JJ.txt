@@ -235,7 +235,8 @@ login-bg_ori is the original
 
     rails guide site
       red #C52F24
-      gray #222
+      gray #2E2E2E
+      gray-darker #1C1C1C
       darkred #980905
       lightred #f1938c
       firebrick #c52f24
@@ -254,3 +255,10 @@ Made changes to
       changed color schemes for sections and icons
       removed the arrow
   style.css
+
+===========================================
+8 August 2015
+==========================================
+2nd Commit
+Made changes to the login page
+Made changes to the dashboard
