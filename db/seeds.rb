@@ -155,3 +155,21 @@ protected
  def my_rescue_method
    ...
  end')
+
+@otheruser = User.find_by(id: 2)
+ @otheruser.snippets.create(snippet_title: 'Validate a Credit Card Number',
+ snippet_description: "Download the Credit Card Library from Lucas Carlson user$ sudo gem install creditcard",
+ snippet_content: "#Checksum Digit, there is an algorithm that checksum must match
+#A. Import the libraries
+require 'rubygems'
+require 'creditcard'
+
+#B. Boolean test as to whether this number is a valid credit card
+puts '5276 4400 6542 1319'.creditcard?
+
+#C. Check the type of credit card it is
+puts '5276 4400 6542 1319'.creditcard_type")
+
+@otheruser.snippets.create(snippet_title: 'Display Image in Link_to',
+snippet_description: "Displays a image inside link_to instead of text.",
+snippet_content: '<%= link_to image_tag("search.gif", :border=>0), :action => "show", :id => user %>')
