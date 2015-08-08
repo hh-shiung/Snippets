@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     puts @users.first.id
-    puts "User ID hEre"
+    puts "User ID here"
   end
 
   def check_for_cancel
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @welcomemsg = "Welcome #{session[:current_user_email]}"
     @snippets = Snippet.all.order(snippet_view_count: :desc)
     render template: 'landing/index'
-	end
+  end
 
   def showLogin
     render template: 'users/login'
@@ -172,12 +172,17 @@ class UsersController < ApplicationController
   private
   def auth_user
     if(params[:email] != nil && params[:password] != nil)
-      if(User.exists?(email: params[:email], password: params[:password]))
+      @verify = User.find_by(email: params[:email])
+      if(!@verify.blank?)
+        puts "Password: #{params[:password]}"
+        puts "Password check : #{@verify.valid_password?(params[:password])}"
+        if(@verify.valid_password?(params[:password]))
         session.clear
         session[:current_user_email] = params[:email]
         @personaluserid =  User.find_by(email: params[:email])
         session[:current_username] = @personaluserid.username
         session[:current_avatar] = @personaluserid.avatar
+        end
       else
         # flash[:invaliduser] = "Invalid Email and/or Password."
         flash[:alert] = "Invalid Email and/or Password."
