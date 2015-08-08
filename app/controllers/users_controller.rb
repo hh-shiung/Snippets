@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     @personaluserid =  User.find_by(email: session[:current_user_email])
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
 
-    @welcomemsg = "This is your personal snippets collection"
+    @welcomemsg = "#{@personaluserid.username}'s personal snippets collection"
     render template: 'users/personal'
   end
 
