@@ -137,8 +137,14 @@ TODO: Beautify Snippet related stuff.
 == Log 14 ==
 Unable to log in! Used "rails console" to log in!
 Configured side bar and header to show on the Snippets by inserting it into "snippet_layout.html.erb".
-Changed the routing of the "Back" button to Index on Snippet Show and View.
+Devise issue!
 
-TODO: Make the footer visible immediately when requested.
+TODO: Fix the weird horizontal scrollable thing on show.
+DONE: Make the footer visible immediately when requested.
+  * Added navbar-fixed-bottom to footer class.
+  * Removed site-min-height on main content wrapper section class to remove scrolling
 TODO: Port view changes to include other components.
 TODO: Ensure that the features remain with the views.
+DONE: Changed the routing of the "Back" button to Index on Snippet Show and View.
+  * Changed all redirecting button_to into link_to on Snippets
+  * Commented out JavaScript. Might remove it after confirmation.

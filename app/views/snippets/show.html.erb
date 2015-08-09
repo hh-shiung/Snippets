@@ -1,35 +1,23 @@
 <h1><%= @snippet.snippet_title %></h1>
+<p><%= @snippet.snippet_description %></p>
+<p><%= raw @snippet.snippet_content %></p>
 
-<table class="table">
-  <thead>
-    <th class="col-md-2"><h2>Description</h2></th>
-    <th class="col-md-10"><h2>Snippet</h2></th>
-  </thead>
-
-  <tbody>
-    <td class="col-md-2"><%= @snippet.snippet_description %></td>
-    <td class="col-md-10"><%= raw @snippet.snippet_content %></td>
-  </tbody>
-</table>
+<!-- <td class="col-md-2"><%= @snippet.snippet_description %></td> -->
+<!-- <td class="col-md-10"><%= raw @snippet.snippet_content %></td> -->
 
 <!-- <%#= link_to 'Edit', edit_snippet_path(@snippet) %> | -->
 <!-- <%#= link_to 'Back', "/index" %> -->
 
-
 <div class="row">
-
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <div class="actions pull-left">
-      <!-- Alternative way of going back to index -->
-      <%= button_to "Back", "/index", :method => :get %>
+      <%= link_to "Back", "/index", :class => "button" %>
+      <!-- <%= button_to "Back", "/index", :method => :get %> -->
     </div>
   </div>
-
 </div>
 
 <!-- HACK: Redirects to Heroku Dashboard page of the Application -->
 <script>
-  $('.return_to_dashboard').click(function(){
-    window.location.replace("http://rorsnippet.herokuapp.com/index");
-  });
+  // $('.return_to_dashboard').click(function(){window.location.replace("http://rorsnippet.herokuapp.com/index");});
 </script>
