@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # devise_for :users
   resources :favorites
   resources :snippets
   resources :users
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   post '/index' => 'users#showIndex'
   get '/login' => 'users#showLogin'
   get '/lock' => 'users#showLock'
+  get '/logout' => 'users#showLogout'
   get '/register' => 'users#new'
   get '/personal' => 'users#showPersonal'
   get '/fav' => 'users#showFav'

@@ -10,3 +10,6 @@
 - Cleaned up code in user_controller
 - Removed extra password field from previous merge in new users page
 - Formatted the page to the correct order as previous merge has scrambled the control order in new user page
+- Changed from cookies to sessions, following advice from Bryan
+- Clear session when user logout
+- Redirect user to login if no session detected

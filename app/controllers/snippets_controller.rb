@@ -1,23 +1,38 @@
 class SnippetsController < ApplicationController
+  # Switches to use snippet_layout.html.erb instead of application.html.erb
+  require 'coderay'
+  layout 'snippet_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  before_action :auth_user
+  # impressionist :actions => [:show, :index]
 
   # GET /snippets
   # GET /snippets.json
   def index
     @snippets = Snippet.all.order(snippet_view_count: :desc)
+    puts @snippets.first
+    puts "Snippet ID here"
   end
+
+  # Shiung's addition
+  # Copying from UsersController
 
   # GET /snippets/1
   # GET /snippets/1.json
   def show
+    @snippet.snippet_content = CodeRay.scan(@snippet.snippet_content, :ruby).div(:line_numbers => :table)
   end
 
   # GET /snippets/new
   def new
+    if(session.has_key?("current_user_email"))
     @snippet = Snippet.new
-    puts params[:user_email]
-    @snippetuser = User.find_by(email: params[:user_email])
+    @snippetuser = User.find_by(email: session[:current_user_email])
     puts @snippetuser.email
+  else
+    flash[:alert] = "You must be logged in to access this section."
+    redirect_to "/login"
+  end
   end
 
   # GET /snippets/1/edit
@@ -28,18 +43,13 @@ class SnippetsController < ApplicationController
   # POST /snippets.json
   def create
     # Associate User to Snippets
-    # puts params[:user_email]
-    # @user = User.find_by(email: params[:user_email])
-    # puts @user.first.email
 
-    @snippetuser = User.find_by(email: params[:user_email])
-    # puts @snippetuser.email
+    @snippetuser = User.find_by(email: session[:current_user_email])
     @snippet = @snippetuser.snippets.create(snippet_params)
-    # @snippet = Snippet.new(snippet_params)
 
     respond_to do |format|
       if @snippet.save
-        format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
+        format.html { redirect_to @snippet }
         format.json { render :show, status: :created, location: @snippet }
       else
         format.html { render :new }
@@ -73,6 +83,12 @@ class SnippetsController < ApplicationController
   end
 
   private
+  def auth_user
+    if(!session.has_key?("current_user_email"))
+      flash[:alert] = "You must be logged in to access this section."
+        redirect_to "/login" and return
+    end
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_snippet
       @snippet = Snippet.find(params[:id])

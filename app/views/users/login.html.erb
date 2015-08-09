@@ -9,7 +9,7 @@
     <title>ror snippets</title>
   </head>
 
-  <body>
+  <body id="login">
 
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
@@ -27,7 +27,8 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<input id="password" name="password" type="password" class="form-control" placeholder="Password">
+          <%= password_field_tag 'password', '', {class: 'form-control',:placeholder => "Password"}%>
+					<!-- <input id="password" name="password" type="password" class="form-control" placeholder="Password"> -->
 				</div>
 			</div>
 			<div class="row">
@@ -50,10 +51,10 @@
               <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
           </div>
           <div class="registration">
-              Don't have an account yet?<br/>
+              Don't have an account yet?<br/><br/>
               <!-- <a class="" data-toggle="modal" href="login.html#registeruser"> -->
-              <a class="" data-toggle="modal" href="/register">
-                  Create an account
+              <a class="" data-toggle="modal" href="/register" >
+                <p class="createfont">  Create an account </p>
               </a>
           </div>
         </div>

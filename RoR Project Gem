@@ -1,0 +1,4 @@
+Devise: for user module -- add in other user information in another migration
+Paperclip: for uploading user photo
+Coderay: to beautify snippets (Contains most programming language. Need to choose)
+Impressionist: Track page count

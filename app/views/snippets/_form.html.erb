@@ -1,4 +1,5 @@
 <%= form_for(@snippet) do |f| %>
+
   <% if @snippet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@snippet.errors.count, "error") %> prohibited this snippet from being saved:</h2>
@@ -9,25 +10,40 @@
       </ul>
     </div>
   <% end %>
+<body id="createsnippet">
+
 
   <div class="field">
-    <%= f.label :snippet_title %><br>
-    <%= f.text_field :snippet_title %>
+    <!-- <%#= f.label :snippet_title %><br> -->
+    <%= f.text_field :snippet_title, placeholder:"Title", :style => 'color:black' %>
   </div>
   <div class="field">
-    <%= f.label :snippet_description %><br>
-    <%= f.text_area :snippet_description %>
+    <!-- <%#= f.label :snippet_description %><br> -->
+    <%= f.text_area :snippet_description, placeholder:"Description" %>
   </div>
   <div class="field">
-    <%= f.label :snippet_content %><br>
-    <%= f.text_area :snippet_content %>
+    <!-- <%#= f.label :snippet_content %><br> -->
+    <%= f.text_area :snippet_content, placeholder:"Snippet", rows:12 %>
   </div>
   <!-- <div class="field">
      f.label :snippet_view_count
      f.number_field :snippet_view_count
   </div> -->
   <div class="actions">
-    <%= hidden_field_tag 'user_email', @snippetuser.email  %>
+    <!-- <%#= hidden_field_tag 'user_email', @snippetuser.email  %> -->
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<%= link_to "Back", "/index", :class => "button" %>
+
+<!-- HACK: Redirects to Heroku Dashboard page of the Application -->
+<!-- <button class="return_to_dashboard">Back</button> -->
+
+<script>
+$('.return_to_dashboard').click(function(){
+  window.location.replace("http://rorsnippet.herokuapp.com/index");
+});
+</script>
+</body>

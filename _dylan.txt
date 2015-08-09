@@ -3,8 +3,11 @@
          - added devise gem and rails g devise:install
          - added paperclip gem, rails g paperclip user avatar
 20150723 - rectified avatar issue, pending default image
-20150726 - added username in the database
+20150725 - added has_many and belongs to relationship in user and snippets controller
+20150726 - added username, first name and last name in the database
 20150729 - seed database
 20150801 - rectify database issue
 20150804 - added require field on username, email and password
 20150805 - added autofocus on username field
+20150806 - linked username and avatar to dashboard, personal, fav and performance
+         - change font size of create an account and change cover to red when hover over

@@ -203,3 +203,62 @@ added the following
     font-size:20px;
     margin-bottom:10px;
   }
+
+======================================
+7 August 2015
+=====================================
+My Task
+  No Animation
+  Reduce Image Size
+  Responsive Design Mobile
+  Add Sidebar to all pages
+
+main.css.erb
+commented
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+
+style.css
+commented
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
+drag main.js from javascript folder to assets folder
+to disable the animation
+
+Image optimization
+banner.jpg - optimized
+banner_ori.jpg is the original
+login-bg.jpg - optimize
+login-bg_ori is the original
+
+=======================================
+    Color Scheme GUIDE
+
+    rails guide site
+      red #C52F24
+      gray #2E2E2E
+      gray-darker #1C1C1C
+      darkred #980905
+      lightred #f1938c
+      firebrick #c52f24
+
+    logo
+      tomatored #ed4545
+      darkerRed #932a2a
+      white #fff
+=======================================
+
+Changed logo - from ROR to logoV2
+Make BG darker abit
+
+Made changes to
+  main.css.erb
+      changed color schemes for sections and icons
+      removed the arrow
+  style.css
+
+===========================================
+8 August 2015
+==========================================
+2nd Commit
+Made changes to the login page
+Made changes to the dashboard

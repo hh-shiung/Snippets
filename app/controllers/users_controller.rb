@@ -1,41 +1,49 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-
+  before_action :auth_user
+  skip_before_action :auth_user, only: [:new, :create, :showLogin]
+  skip_before_filter :verify_authenticity_token, :only => [:index, :show, :showIndex]
+  before_filter :check_for_cancel, :only => [:create, :update]
   # GET /users
   # GET /users.json
   def index
     @users = User.all
     puts @users.first.id
-    puts "User ID hEre"
+    puts "User ID here"
+  end
+
+  def check_for_cancel
+    puts "Entering Cancel"
+  if params.key?("cancel")
+    puts "Cancel"
+    redirect_to "/"
+  end
+  end
+
+  def Home
+    redirect_to "/"
   end
 
   def showIndex
     # Snippets::Application::MaxPostInADay
     # Refer to config/application.rb for Global Static Variable
-    if (params[:email] != nil)
-      if(User.exists?(email: params[:email]))
 
-        cookies[:current_user_email] = params[:email]
-        @personaluserid =  User.find_by(email: cookies[:current_user_email])
-        cookies[:current_username] = @personaluserid.username
-        cookies[:current_avatar] = @personaluserid.avatar
-
-      else
-        # flash[:invaliduser] = "#{params[:email]} does not exist. Have you registered?"
-        flash[:invaliduser] = "Invalid Email and/or Password."
-        redirect_to "/login" and return
-      end
-    end
-
-    @welcomemsg = "Welcome #{cookies[:current_user_email]}"
+    @welcomemsg = "Welcome #{session[:current_user_email]}"
     @snippets = Snippet.all.order(snippet_view_count: :desc)
     render template: 'landing/index'
-
-	end
+  end
 
   def showLogin
     render template: 'users/login'
+  end
+
+  def showLogout
+    puts "Clear sessions"
+    session.clear
+    puts session[:current_user_email]
+    # flash[:invaliduser] = "You've logged out from RoRSnippet"
+    flash[:notice] = "You've logged out from RoRSnippet"
+    redirect_to "/login"
   end
 
   def showLock
@@ -43,10 +51,12 @@ class UsersController < ApplicationController
   end
 
   def showPersonal
-    puts cookies[:current_user_email]
-
-    @personaluserid =  User.find_by(email: cookies[:current_user_email])
+    puts session[:current_user_email]
+    puts "showPersonal"
+    @personaluserid =  User.find_by(email: session[:current_user_email])
     @personalsnippets = Snippet.all.where(user_id: @personaluserid.id)
+
+    @welcomemsg = "This is your personal snippets collection"
     render template: 'users/personal'
   end
 
@@ -110,6 +120,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    puts "Alert"
+    puts session[:alert]
   end
 
   # GET /users/1/edit
@@ -122,20 +134,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:notice] = "Thank you for registering. Please check your inbox for confirmation email."
     redirect_to "/login"
+    else
+      puts @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages
+      puts flash[:alert]
+      redirect_to "/register"
     end
-
-    # respond_to do |format|
-    #   if @user.save
-    #     # format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #     # format.json { render :show, status: :created, location: @user }
-    #     render template: 'users/login'
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
+
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -162,6 +170,31 @@ class UsersController < ApplicationController
   end
 
   private
+  def auth_user
+    if(params[:email] != nil && params[:password] != nil)
+      @verify = User.find_by(email: params[:email])
+      if(!@verify.blank? && @verify.valid_password?(params[:password]))
+        puts "Password: #{params[:password]}"
+        puts "Password check : #{@verify.valid_password?(params[:password])}"
+        session.clear
+        session[:current_user_email] = params[:email]
+        @personaluserid =  User.find_by(email: params[:email])
+        session[:current_username] = @personaluserid.username
+        session[:current_avatar] = @personaluserid.avatar
+      else
+        # flash[:invaliduser] = "Invalid Email and/or Password."
+        flash[:alert] = "Invalid Email and/or Password."
+        redirect_to "/login" and return
+      end
+    else
+        if(!session.has_key?("current_user_email"))
+          # flash[:invaliduser] = "You must be logged in to access this section."
+          flash[:alert] = "You must be logged in to access this section."
+            redirect_to "/login" and return
+        end
+    end
+
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
