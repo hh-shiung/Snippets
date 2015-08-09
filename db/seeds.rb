@@ -27,8 +27,8 @@ User.create(username: "Ching[B.A.D]",
 User.create(username: "lenient",
             first_name: "Hsien Shiung",
             last_name: "Hwang",
-            email: "shiung@gmail.com"
-            password: "qwertykeys"
+            email: "shiung@gmail.com",
+            password: "qwertykeys",
             avatar: Faker::Avatar.image
             )
 ###################################################
