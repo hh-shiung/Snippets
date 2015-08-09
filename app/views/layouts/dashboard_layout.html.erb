@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lan="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>RoR Snippets</title>
+
+    <meta property="og:title" content="RoR Snippets">
+    <meta property="og:image" content="<%= image_url("banner.jpg")%>">
+    <meta property="og:description" content = "Serving freshly made Ruby on Rail snippets since 2015">
+
+    <!-- Rails settings -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div id="container">
+
+      <header class="header black-bg">
+        <a href="index.html" class="logo"><b>RoR Snippets</b></a>
+        <div class="top menu">
+          <ul class="nav pull-right top-menu">
+            <!-- Items here will appear on the top right of the upper bar. -->
+          </ul>
+        </div>
+      </header>
+
+      <!-- Sidebar -->
+      <aside>
+        <div id="sidebar"  class="nav-collapse">
+
+          <!-- Sidebar menu -->
+          <ul class="sidebar-menu" id="">
+            <p class="centered"><a href="profile.html"><img src="<%= session[:current_avatar] %>" class="img-circle" width="60"></a></p>
+            <h5 class="centered">Hi, <%= session[:current_username] %>!</h5>
+
+            <!-- TODO: Change the focus highlighting to function via JS -->
+            <li class="mt">
+              <a class="active" href="/index">
+                <i class="fa fa-dashboard"></i>
+                <span>Global Snippets</span>
+              </a>
+            </li>
+            <li class="mt">
+              <a href="/personal" >
+                <i class="fa fa-coffee"></i>
+                <span>Personal Snippets</span>
+              </a>
+            </li>
+            <li class="mt">
+              <a href="/logout" >
+                <i class="fa fa-sign-out"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+
+        </div><!-- sidebar menu end-->
+      </aside><!--sidebar end-->
+
+      <!-- Main content -->
+      <section id="main-content">
+        <div class="wrapper site-min-height">
+          <div class="row mt loading">
+            <div class="col-lg-12">
+              <h2 style="color:black"><%= @welcomemsg %></h2>
+              <!-- Main content for swapping -->
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="site-footer navbar-fixed-bottom">
+        <div class="text-center">
+          Copyright © 2015 RoR Snippets
+        </div>
+      </footer>
+
+    </div><!-- page container end -->
+
+    <script type="text/javascript">
+      $('.test').click(function (){ $('.sub').slideToggle( "fast" ); });
+      $('.go-top').click(function (){ $("html, body").animate({scrollTop: 0}, 500); });
+    </script>
+
+  </body>
+
+</html>
