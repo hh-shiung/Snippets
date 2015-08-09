@@ -1,7 +1,7 @@
 class SnippetsController < ApplicationController
   # Switches to use snippet_layout.html.erb instead of application.html.erb
   require 'coderay'
-  layout 'snippet_layout'
+  layout 'dashboard_layout'
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
   # impressionist :actions => [:show, :index]
