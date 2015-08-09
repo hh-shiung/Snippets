@@ -157,3 +157,5 @@ Necessary to have type:"button" on the link_buttons?
 BUG: Sidebar focus highlight jumps to Global Snippets even though the Snippet is accessed through the Personal Snippets tab.
 QUES: What does the mt class do?
 QUES: What does the loading class do?
+
+FIND: Horizontal scrolling action doesn't occur if the horizontal length of the code doesn't exceed the extension.

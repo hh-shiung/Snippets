@@ -34,22 +34,23 @@
           <!-- Sidebar menu -->
           <ul class="sidebar-menu" id="">
             <p class="centered"><a href="profile.html"><img src="<%= session[:current_avatar] %>" class="img-circle" width="60"></a></p>
-            <h5 class="centered">Hi, <%= session[:current_username] %>!</h5>
+            <h5 class="centered"><%= session[:current_username] %></h5>
 
             <!-- TODO: Change the focus highlighting to function via JS -->
             <li class="mt">
-              <a class="active" href="/index">
+              <!-- <a class="active" href="/index"> -->
+              <a href="/index">
                 <i class="fa fa-dashboard"></i>
                 <span>Global Snippets</span>
               </a>
             </li>
-            <li class="mt">
+            <li class="sub-menu">
               <a href="/personal" >
                 <i class="fa fa-coffee"></i>
                 <span>Personal Snippets</span>
               </a>
             </li>
-            <li class="mt">
+            <li class="sub-menu">
               <a href="/logout" >
                 <i class="fa fa-sign-out"></i>
                 <span>Logout</span>

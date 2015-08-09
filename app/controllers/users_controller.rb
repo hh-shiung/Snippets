@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  layout 'dashboard_layout', except: [:showLogin, :showLogout, :new]
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
   skip_before_action :auth_user, only: [:new, :create, :showLogin]
