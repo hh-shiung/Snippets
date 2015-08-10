@@ -22,7 +22,7 @@
     <% @users.each do |user| %>
       <tr>
         <!-- <td><%# user.user_id %></td> -->
-        <td><%= image_tag user.avatar.url(:medium) %></td>
+        <td><%= image_tag user.avatar.url(:thumb) %></td>
         <td><%= user.username %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
