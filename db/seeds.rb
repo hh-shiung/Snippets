@@ -15,15 +15,33 @@ User.create(username: "RoRSnippet",
             avatar: Faker::Avatar.image
                  )
 
-10.times do
-   User.create(username: Faker::Internet.user_name,
-               first_name: Faker::Name.first_name,
-               last_name: Faker::Name.last_name,
-               email: Faker::Internet.email,
-               password: Faker::Internet.password(8),
-               avatar: Faker::Avatar.image
-                    )
-end
+#### PLEASE ADD IN YOUR OWN ACCOUNT ###############
+User.create(username: "Ching[B.A.D]",
+            first_name: "Ching",
+            last_name: "[B.A.D]",
+            email: "sing.chow.ching@outlook.com",
+            password: "12345678",
+            avatar: Faker::Avatar.image
+                 )
+
+User.create(username: "lenient",
+            first_name: "Hsien Shiung",
+            last_name: "Hwang",
+            email: "shiung@gmail.com",
+            password: "qwertykeys",
+            avatar: Faker::Avatar.image
+            )
+###################################################
+
+# 10.times do
+#    User.create(username: Faker::Internet.user_name,
+#                first_name: Faker::Name.first_name,
+#                last_name: Faker::Name.last_name,
+#                email: Faker::Internet.email,
+#                password: Faker::Internet.password(8),
+#                avatar: Faker::Avatar.image
+#                     )
+# end
 
 # First Snippet
   @masteruser = User.find_by(email: "ror@rorsnippet.com")

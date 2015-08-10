@@ -10,10 +10,12 @@
       </ul>
     </div>
   <% end %>
+<body id="createsnippet">
+
 
   <div class="field">
     <!-- <%#= f.label :snippet_title %><br> -->
-    <%= f.text_field :snippet_title, placeholder:"Title" %>
+    <%= f.text_field :snippet_title, placeholder:"Title", :style => 'color:black' %>
   </div>
   <div class="field">
     <!-- <%#= f.label :snippet_description %><br> -->
@@ -39,8 +41,8 @@
 <!-- HACK: Redirects to Heroku Dashboard page of the Application -->
 <!-- <button class="return_to_dashboard">Back</button> -->
 
-<!-- <script>
-  // $('.return_to_dashboard').click(function(){
-    window.location.replace("http://rorsnippet.herokuapp.com/index");
-  });
-</script> -->
+
+<script>
+    //  $('.return_to_dashboard').click(function(){
+    // window.location.replace("http://rorsnippet.herokuapp.com/index");});
+</script>
