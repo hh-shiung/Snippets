@@ -68,19 +68,47 @@ class UsersController < ApplicationController
     render template: 'users/performance'
   end
 
-  def sendEmail
+  def forgotPW
+    # render template: 'test/blank'
+    # email = params[:email]
+    require 'SecureRandom'
+    input_email = params[:email]
+    token = SecureRandom.urlsafe_base64
+    result = sendEmail(input_email,token,'forgotpw')
+    # render json: @product
+    render status: 200, json: result and return
+  end
+  
+  def sendEmail(email,token,type)
     # user = User.find_by(name: "Bryan Lim")
     # UserMailer.welcome(user).deliver
-    require 'SecureRandom'
-    @email = params[:email]
-    @password = params[:login_pass]
-    @token = SecureRandom.hex
+    # @email = params[:email]
+    # @password = params[:login_pass]
     # @email = ""
-    @is_activate = 0
-    UserMailer.welcome(@email,@token).deliver
-    object = User.new(:email => @email, :password => @password, :token => @token, :is_email_confirm => 0)
-    object.save
-    render template: "test/blank"
+    # @is_activate = 0
+    if type == "forgotpw"
+      result = User.find_by_email("#{email}")
+      if result == nil
+        result = ["is_success"=>"0"]
+        return result
+      else
+        require 'SecureRandom'
+        @password = SecureRandom.urlsafe_base64
+        UserMailer.forgotpw(email,token,@password).deliver
+        User.update(result.id, :password=>@password)
+        # Person.update(15, :user_name => 'Samuel', :group => 'expert')
+        # people = { 1 => { "first_name" => "David" }, 2 => { "first_name" => "Jeremy" } }
+        # Person.update(people.keys, people.values)
+        result = ["is_success" => "1"]
+
+        return result
+      end
+    elsif type == "welcome"
+      UserMailer.welcome(email,token).deliver
+    end
+    # object = User.new(:email => @email, :password => @password, :token => @token, :is_email_confirm => 0)
+    # object.save
+    # render template: "test/blank"
   end
 
   def verifyToken

@@ -11,3 +11,9 @@ access_type: "app_folder"
 # access_token_secret:  8g6fhbfa97zma9n
 # user_id:  437007884
 # access_type: "app_folder"
+
+dropbox_app_key: gv2poelwwl19nz0
+dropbox_app_secret: hwmzo5n3j9l9l5h
+dropbox_access_token: bresg9pqvvllnhb2
+dropbox_access_token_secret: 8g6fhbfa97zma9n
+dropbox_user_id: "437007884"

@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   get '/test' => 'users#sendEmail'
   post '/getinput' => 'users#getinput'
   post '/forgotpw' => 'users#forgotPW'
+  get '/forgotpw/:token' => 'users#verifyToken'
 
 end
