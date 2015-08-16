@@ -140,11 +140,22 @@ Configured side bar and header to show on the Snippets by inserting it into "sni
 Devise issue!
 
 TODO: Fix the weird horizontal scrollable thing on show.
-DONE: Make the footer visible immediately when requested.
-  * Added navbar-fixed-bottom to footer class.
-  * Removed site-min-height on main content wrapper section class to remove scrolling
 TODO: Port view changes to include other components.
-TODO: Ensure that the features remain with the views.
+DONE: Ensure that the features remain with the views.
 DONE: Changed the routing of the "Back" button to Index on Snippet Show and View.
   * Changed all redirecting button_to into link_to on Snippets
   * Commented out JavaScript. Might remove it after confirmation.
+  DONE: Make the footer visible immediately when requested.
+    * Added navbar-fixed-bottom to footer class.
+    * Removed site-min-height on main content wrapper section class to remove scrolling
+    * Reverted site-min-height to solve blank white space under table.
+
+150809
+== Log 15 ==
+TODO: Clean up code with "dashboard_layout.html.erb".
+Necessary to have type:"button" on the link_buttons?
+BUG: Sidebar focus highlight jumps to Global Snippets even though the Snippet is accessed through the Personal Snippets tab.
+QUES: What does the mt class do?
+QUES: What does the loading class do?
+
+FIND: Horizontal scrolling action doesn't occur if the horizontal length of the code doesn't exceed the extension.
