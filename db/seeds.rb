@@ -23,6 +23,14 @@ User.create(username: "Ching[B.A.D]",
             password: "12345678",
             avatar: Faker::Avatar.image
                  )
+
+User.create(username: "lenient",
+            first_name: "Hsien Shiung",
+            last_name: "Hwang",
+            email: "shiung@gmail.com",
+            password: "qwertykeys",
+            avatar: Faker::Avatar.image
+            )
 ###################################################
 
 # 10.times do
