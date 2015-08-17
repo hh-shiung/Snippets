@@ -8,6 +8,8 @@ gem 'thin'
 gem 'faker'
 gem 'guard'
 
+gem 'mina'
+
 # Dylan's gem
 # Flexible authentication solution
 gem 'devise'
