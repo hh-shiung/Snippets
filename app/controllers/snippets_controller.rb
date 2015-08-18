@@ -14,6 +14,20 @@ class SnippetsController < ApplicationController
     puts "Snippet ID here"
   end
 
+  def save_favorite
+    # Get user ID
+    # @user = User.find_by()
+    @snippet = Snippet.find(params[:id])
+    # @fav = Favorite.new(user_id: @user.id, snippet_id: @snippet.id)
+    # @fav.save
+    puts "getting favorite id"
+    puts params[:id]
+    respond_to do |format|
+      format.html { redirect_to @snippet, notice: 'Snippet was successfully Favorite.' }
+      format.json { render :show, status: :created, location: @snippet }
+    end
+  end
+
   # Shiung's addition
   # Copying from UsersController
 

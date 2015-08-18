@@ -19,6 +19,7 @@ has_attached_file :avatar,
 
   # Associate many Snippets
   has_many :snippets, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # Associate many Favorites
   # has_many :favorites, dependent: :destroy
