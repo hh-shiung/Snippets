@@ -1,15 +1,9 @@
-<div class="row">
-  <div class="col-xs-12 col-md-8"><h1><%= @snippet.snippet_title %></h1></div>
-  <div class="col-xs-6 col-md-4">
-    <%= link_to "", fav_path(@snippet), remote: true, class: "fa fa-heart" %>
-    <!-- <i class="fa fa-heart"></i> -->
-    </a>
-  </div>
-</div>
-
-</table>
-
-
+  <% if @hasFavorite.blank? %>
+  <%= link_to "", fav_path(@snippet), remote: true, class: "fa fa-heart" %>
+  <% end %>
+  <!-- <i class="fa fa-heart"></i> -->
+  
+<h1><%= @snippet.snippet_title %></h1>
 <p><%= @snippet.snippet_description %></p>
 <p><%= raw @snippet.snippet_content %></p>
 

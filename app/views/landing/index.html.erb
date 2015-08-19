@@ -14,8 +14,8 @@
   <tbody>
     <% @snippets.each do |snippet| %>
       <tr>
-        <td colspan="3" id="redhover">
-        <%= link_to(snippet) do %>
+        <td colspan="3" id="redhover" class="globalsnippet">
+        <%= link_to(snippet, class: "globalsnippet") do %>
         <p><%= snippet.snippet_title %></p>
         <% end %></td>
         <td colspan="3"><%= snippet.snippet_description %></td>
