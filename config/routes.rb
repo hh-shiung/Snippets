@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # get 'welcome' => 'landing#landingpage'
   root 'landing#landingpage'
 
+  # Facebook login
+  get 'auth/:provider/callback', to: 'users#fbcreate'
+  # Facebook login
+
   get '/index' => 'users#showIndex'
   post '/index' => 'users#showIndex'
 

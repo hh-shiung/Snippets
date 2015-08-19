@@ -21,6 +21,16 @@ has_attached_file :avatar,
   has_many :snippets, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  def self.omniauth(auth)
+    return where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      puts "self.ominauth"
+      user.first_name = auth.info.name
+      user.avatar = auth.info.image
+      user.email = auth.info.email
+      user.password = Devise.friendly_token.first(8)
+    end
+  end
+
   # Associate many Favorites
   # has_many :favorites, dependent: :destroy
 end
