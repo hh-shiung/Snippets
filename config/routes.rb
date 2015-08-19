@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # get 'welcome' => 'landing#landingpage'
   root 'landing#landingpage'
 
+  # Facebook login
+  get 'auth/:provider/callback', to: 'users#fbcreate'
+  # Facebook login
+
   get '/index' => 'users#showIndex'
   post '/index' => 'users#showIndex'
 
@@ -16,7 +20,7 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   get '/personal' => 'users#showPersonal'
 
-  get '/fav' => 'users#showFav'
+  get '/fav/:id' => 'snippets#save_favorite', as: :fav
 
   get '/performance' => 'users#showPerformance'
 

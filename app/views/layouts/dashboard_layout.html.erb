@@ -21,6 +21,13 @@
   </head>
 
   <body id="dashboard">
+    <% if notice %>
+      <p style="text-align: center;" class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <!-- <p class="alert alert-danger"><%# alert %></p> -->
+      <p style="text-align: center;" class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <div id="container">
 
       <header class="header black-bg">
@@ -53,6 +60,12 @@
               <a href="/personal" >
                 <i class="fa fa-coffee"></i>
                 <span>Personal Snippets</span>
+              </a>
+            </li>
+            <li class="sub-menu">
+              <a href="/favorite" >
+                <i class="fa fa-heart"></i>
+                <span>Favorite Snippets</span>
               </a>
             </li>
             <li class="sub-menu">
