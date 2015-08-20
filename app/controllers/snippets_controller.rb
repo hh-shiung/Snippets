@@ -14,6 +14,38 @@ class SnippetsController < ApplicationController
     puts "Snippet ID here"
   end
 
+  def save_favorite
+    # Get user ID
+    # @user = User.find_by()
+    @user = User.find_by(email: session[:current_user_email])
+
+    @snippet = Snippet.find(params[:id])
+
+    @fav = Favorite.new(user_id: @user.id, snippet_id: @snippet.id)
+    if @fav.save
+    puts "getting favorite id"
+    puts params[:id]
+    respond_to do |format|
+      format.html { redirect_to @snippet, notice: 'Snippet was successfully Favorite.' }
+      format.json { render :show, status: :created, location: @snippet }
+    end
+    else
+      puts @fav.errors.full_messages
+      flash[:alert] = @fav.errors.full_messages
+      puts flash[:alert]
+      format.html { redirect_to @snippet, notice: 'Snippet was successfully Favorite.' }
+      format.json { render json: @snippet.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def favorites
+    @personaluserid =  User.find_by(email: session[:current_user_email])
+    @favSnippetId = @personaluserid.favorites.flat_map {|x| x.snippet_id}
+    @favSnippets = Snippet.all.where(id: @favSnippetId.uniq)
+
+    @welcomemsg = "#{@personaluserid.username}'s personal snippets collection"
+  end
+
   # Shiung's addition
   # Copying from UsersController
 
@@ -21,6 +53,11 @@ class SnippetsController < ApplicationController
   # GET /snippets/1.json
   def show
     @snippet.snippet_content = CodeRay.scan(@snippet.snippet_content, :ruby).div(:line_numbers => :table)
+
+    @snippetuser = User.find_by(email: session[:current_user_email])
+    @hasFavorite = @snippetuser.favorites.find_by(snippet_id:  @snippet.id)
+    puts "Getting user favorite"
+    puts @hasFavorite.blank?
   end
 
   # GET /snippets/new
