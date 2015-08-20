@@ -159,3 +159,19 @@ QUES: What does the mt class do?
 QUES: What does the loading class do?
 
 FIND: Horizontal scrolling action doesn't occur if the horizontal length of the code doesn't exceed the extension.
+
+test_shiung branch 	-> for sever setup
+wip_shiung branch 	-> for personal development
+wip									-> raw pull from remote repository
+
+150820
+== Log 16 ==
+Merged new stuff from singchow.
+  * Added in favorite resource after chopping up the original scaffold
+  * Integrated Facebook login
+  * Updated block selection to CSS of snippet title
+  * Refreshed for enabling .gitignore item
+
+Added in /config/secrets.yml to .gitignore and refreshed the cache.
+Tweaked notification errors on dashboard_layout after Facebook login.
+Set redirection of Facebook login error to '/login' from '/register' for UI consistency.
