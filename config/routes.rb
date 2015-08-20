@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # Facebook login
   get 'auth/:provider/callback', to: 'users#fbcreate'
+  match "/auth/failure" => redirect("/login"), via: [:get, :post]
   # Facebook login
 
   get '/index' => 'users#showIndex'
