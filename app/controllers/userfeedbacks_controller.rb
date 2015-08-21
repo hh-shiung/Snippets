@@ -17,6 +17,7 @@ class UserfeedbacksController < ApplicationController
   def new
     @userfeedback = Userfeedback.new
     @userfeedback.email = session[:current_user_email]
+    puts @userfeedback.email
   end
 
   # GET /userfeedbacks/1/edit
@@ -30,7 +31,7 @@ class UserfeedbacksController < ApplicationController
 
     respond_to do |format|
       if @userfeedback.save
-        format.html { redirect_to @userfeedback, notice: 'Userfeedback was successfully created.' }
+        format.html { redirect_to @userfeedback }
         format.json { render :show, status: :created, location: @userfeedback }
       else
         format.html { render :new }

@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @userfeedback.email %></h1>
+<p><%= @userfeedback.feedback %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @userfeedback.email %>
-</p>
-
-<p>
-  <strong>Feedback:</strong>
-  <%= @userfeedback.feedback %>
-</p>
-
-<%= link_to 'Edit', edit_userfeedback_path(@userfeedback) %> |
-<%= link_to 'Back', userfeedbacks_path %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="actions pull-left">
+      <%= link_to "Back", "/index", :class => "button" %>
+      <!-- TODO: Go back to personal snippets if request came from personal snippets -->
+      <!-- <%= button_to "Back", "/index", :method => :get %> -->
+    </div>
+  </div>
+</div>

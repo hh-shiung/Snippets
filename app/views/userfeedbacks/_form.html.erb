@@ -12,12 +12,13 @@
   <% end %>
 <body id="createsnippet">
   <div class="field">
-    <h2><%= f.label :email, :style => 'color:white' %></h2>
+    <h2><%= f.label :email, @userfeedback.email, :style => 'color:white' %></h2>
   </div>
   <div class="field">
       <%= f.text_area :feedback, placeholder:"Feedback", rows:10, :style => 'color:black' %>
   </div>
   <div class="actions">
+    <%= f.hidden_field :email  %>
     <%= f.submit "Send Feedback" %>
   </div>
 </body>
