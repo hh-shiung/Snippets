@@ -1,6 +1,7 @@
 class UserfeedbacksController < ApplicationController
   before_action :set_userfeedback, only: [:show, :edit, :update, :destroy]
-
+  layout 'dashboard_layout'
+  before_action :auth_user
   # GET /userfeedbacks
   # GET /userfeedbacks.json
   def index
@@ -15,6 +16,7 @@ class UserfeedbacksController < ApplicationController
   # GET /userfeedbacks/new
   def new
     @userfeedback = Userfeedback.new
+    @userfeedback.email = session[:current_user_email]
   end
 
   # GET /userfeedbacks/1/edit
@@ -62,6 +64,12 @@ class UserfeedbacksController < ApplicationController
   end
 
   private
+  def auth_user
+    if(!session.has_key?("current_user_email"))
+      flash[:alert] = "You must be logged in to access this section."
+        redirect_to "/login" and return
+    end
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_userfeedback
       @userfeedback = Userfeedback.find(params[:id])

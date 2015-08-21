@@ -10,16 +10,17 @@
       </ul>
     </div>
   <% end %>
-
+<body id="createsnippet">
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <h2><%= f.label :email, :style => 'color:white' %></h2>
   </div>
   <div class="field">
-    <%= f.label :feedback %><br>
-    <%= f.text_field :feedback %>
+      <%= f.text_area :feedback, placeholder:"Feedback", rows:10, :style => 'color:black' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Send Feedback" %>
   </div>
+</body>
 <% end %>
+
+<%= link_to "Cancel", "/index", :class => "button" %>
