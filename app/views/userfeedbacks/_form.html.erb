@@ -1,0 +1,26 @@
+<%= form_for(@userfeedback) do |f| %>
+  <% if @userfeedback.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@userfeedback.errors.count, "error") %> prohibited this userfeedback from being saved:</h2>
+
+      <ul>
+      <% @userfeedback.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<body id="createsnippet">
+  <div class="field">
+    <h2><%= f.label :email, :style => 'color:white' %></h2>
+  </div>
+  <div class="field">
+      <%= f.text_area :feedback, placeholder:"Feedback", rows:10, :style => 'color:black' %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send Feedback" %>
+  </div>
+</body>
+<% end %>
+
+<%= link_to "Cancel", "/index", :class => "button" %>
