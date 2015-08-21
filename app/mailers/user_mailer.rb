@@ -8,12 +8,13 @@ class UserMailer < ApplicationMailer
 	end
 
 	def send_feedback(feedback)
+		puts "sending feedback"
 		@feedback = feedback
 		mail(to: @feedback.email, subject: 'Feedback for RoRSnippet')
-		notify_feedback(@feedback)
 	end
 
 	def notify_feedback(feedback)
+		puts "notifying feedback"
 		@feedback = feedback
 		mail(to: "sing.chow.ching@outlook.com;rorsnippet@gmail.com", subject: 'Feedback for RoRSnippet')
 	end

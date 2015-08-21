@@ -31,6 +31,8 @@ class UserfeedbacksController < ApplicationController
 
     respond_to do |format|
       if @userfeedback.save
+        UserMailer.send_feedback(@userfeedback).deliver
+        UserMailer.notify_feedback(@userfeedback).deliver
         format.html { redirect_to @userfeedback }
         format.json { render :show, status: :created, location: @userfeedback }
       else
