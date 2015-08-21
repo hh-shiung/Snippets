@@ -48,7 +48,8 @@
 
           <div class="login-social-link centered">
           <p>or you can sign in via your social network</p>
-              <button class="btn btn-facebook" type="button"><i class="fa fa-facebook"></i> Facebook</button>
+          <%= link_to "Facebook", "/auth/facebook", class: "btn btn-facebook", type: "button" %>
+              <!-- <button class="btn btn-facebook" type="button" href="/auth/facebook"> Facebook</button> -->
               <button class="btn btn-twitter" type="button"><i class="fa fa-twitter"></i> Twitter</button>
           </div>
           <div class="registration">
@@ -207,10 +208,11 @@
 		// 	},
 		// 	url: "/getinput"
 		// });
-		$('.btn-facebook, .btn-twitter').click(function(){
-			jQuery.noConflict();
-			$('#underconstruction').modal('toggle');
-		});
+
+		// $('.btn-facebook, .btn-twitter').click(function(){
+		// 	jQuery.noConflict();
+		// 	$('#underconstruction').modal('toggle');
+		// });
 
 		$('.close_modal').click(function(){
 			$('#error_msg').html('');

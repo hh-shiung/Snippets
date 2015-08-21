@@ -7,8 +7,9 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>RoR Snippets</title>
 
+    <title>RoR Snippets</title>
+    <%= favicon_link_tag 'favicon.ico' %>
     <meta property="og:title" content="RoR Snippets">
     <meta property="og:image" content="<%= image_url("banner.jpg")%>">
     <meta property="og:description" content = "Serving freshly made Ruby on Rail snippets since 2015">
@@ -20,6 +21,13 @@
   </head>
 
   <body id="dashboard">
+    <% if notice %>
+      <p style="text-align: center;" class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <!-- <p class="alert alert-danger"><%# alert %></p> -->
+      <p style="text-align: center;" class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <div id="container">
 
       <header class="header black-bg">
@@ -37,7 +45,7 @@
 
           <!-- Sidebar menu -->
           <ul class="sidebar-menu" id="">
-            <p class="centered"><a href="profile.html"><img src="<%= session[:current_avatar] %>" class="img-circle" width="60"></a></p>
+            <p class="centered"><img src="<%= session[:current_avatar] %>" class="img-circle" width="60"></p>
             <h5 class="centered"><%= session[:current_username] %></h5>
 
             <!-- TODO: Change the focus highlighting to function via JS -->
@@ -52,6 +60,12 @@
               <a href="/personal" >
                 <i class="fa fa-coffee"></i>
                 <span>Personal Snippets</span>
+              </a>
+            </li>
+            <li class="sub-menu">
+              <a href="/favorite" >
+                <i class="fa fa-heart"></i>
+                <span>Favorite Snippets</span>
               </a>
             </li>
             <li class="sub-menu">

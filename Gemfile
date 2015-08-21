@@ -1,12 +1,17 @@
 source 'https://rubygems.org'
 
-ruby "2.2.2"
+ruby "2.2.3"
 
 # Jason's gems
 # Gem let you win la
 gem 'thin'
 gem 'faker'
 gem 'guard'
+
+gem 'mina'
+
+# Facebook login
+gem 'omniauth-facebook'
 
 # Dylan's gem
 # Flexible authentication solution

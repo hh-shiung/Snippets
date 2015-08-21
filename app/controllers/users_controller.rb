@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :auth_user
-  skip_before_action :auth_user, only: [:new, :create, :showLogin]
+  skip_before_action :auth_user, only: [:new, :create, :showLogin, :fbcreate]
   skip_before_filter :verify_authenticity_token, :only => [:index, :show, :showIndex]
-  before_filter :check_for_cancel, :only => [:create, :update]
+  before_filter :check_for_cancel, :only => [:create, :update, :fbcreate]
   # GET /users
   # GET /users.json
   def index
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
     # render json: @product
     render status: 200, json: result and return
   end
-  
+
   def sendEmail(email,token,type)
     # user = User.find_by(name: "Bryan Lim")
     # UserMailer.welcome(user).deliver
@@ -160,6 +160,40 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def fbcreate
+    puts "fbcreate"
+    if env['omniauth.auth']
+      puts env['omniauth.auth']
+      @fbinfo = env['omniauth.auth']['info']
+      @userexist = User.find_by(email: @fbinfo.email)
+      if @userexist
+        session[:current_user_email] = @fbinfo.email
+        redirect_to "/index"
+      else
+      puts @fbinfo
+        @user = User.new(username: @fbinfo.name,
+                    first_name: "",
+                    last_name: "",
+                    email: @fbinfo.email,
+                    password: Devise.friendly_token.first(8),
+                    avatar: @fbinfo.image
+                         )
+        puts "User created thru FB"
+        puts @user
+        if @user.save
+          session[:current_user_email] = @fbinfo.email
+          # flash[:notice] = "Thank you for registering. Please check your inbox for confirmation email."
+        redirect_to "/index"
+        else
+          puts @user.errors.full_messages
+          flash[:alert] = @user.errors.full_messages
+          puts flash[:alert]
+          redirect_to "/login"
+        end
+      end
+    end
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -216,13 +250,18 @@ class UsersController < ApplicationController
         flash[:alert] = "Invalid Email and/or Password."
         redirect_to "/login" and return
       end
-    else
-        if(!session.has_key?("current_user_email"))
-          # flash[:invaliduser] = "You must be logged in to access this section."
+    elsif(session.has_key?("current_user_email"))
+          @verify = User.find_by(email: session[:current_user_email])
+          if(!@verify.blank?)
+            session[:current_user_email] = @verify.email
+            session[:current_username] = @verify.username
+            session[:current_avatar] = @verify.avatar.url(:thumb)
+          end
+
+        else
           flash[:alert] = "You must be logged in to access this section."
             redirect_to "/login" and return
         end
-    end
 
   end
     # Use callbacks to share common setup or constraints between actions.
