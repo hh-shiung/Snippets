@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-	default from: 'LetYouWinLa@RORSnippets.com'
+	default from: 'rorsnippet@gmail.com'
 	def welcome(user,token)
 		@email = user
 		@url  = "http://rorsnippet.herokuapp.com/confirmation/"+token
