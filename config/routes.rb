@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :userfeedbacks
   # devise_for :users
   resources :favorites
   resources :snippets
