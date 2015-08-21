@@ -21,7 +21,6 @@ class SnippetsController < ApplicationController
 
     @snippet = Snippet.find(params[:id])
 
-
     @fav = Favorite.new(user_id: @user.id, snippet_id: @snippet.id)
     if @fav.save
     puts "getting favorite id"
@@ -37,6 +36,14 @@ class SnippetsController < ApplicationController
       format.html { redirect_to @snippet, notice: 'Snippet was successfully Favorite.' }
       format.json { render json: @snippet.errors, status: :unprocessable_entity }
     end
+  end
+
+  def favorites
+    @personaluserid =  User.find_by(email: session[:current_user_email])
+    @favSnippetId = @personaluserid.favorites.flat_map {|x| x.snippet_id}
+    @favSnippets = Snippet.all.where(id: @favSnippetId.uniq)
+
+    @welcomemsg = "#{@personaluserid.username}'s personal snippets collection"
   end
 
   # Shiung's addition
