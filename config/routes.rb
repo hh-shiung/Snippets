@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :userfeedbacks
   # devise_for :users
   resources :favorites
   resources :snippets
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   get '/personal' => 'users#showPersonal'
 
+  get '/favorite' => 'snippets#favorites'
   get '/fav/:id' => 'snippets#save_favorite', as: :fav
 
   get '/performance' => 'users#showPerformance'
