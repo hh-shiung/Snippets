@@ -175,3 +175,7 @@ Merged new stuff from singchow.
 Added in /config/secrets.yml to .gitignore and refreshed the cache.
 Tweaked notification errors on dashboard_layout after Facebook login.
 Set redirection of Facebook login error to '/login' from '/register' for UI consistency.
+
+150827
+== Log 17 ==
+Testing SSH keypair setup.
