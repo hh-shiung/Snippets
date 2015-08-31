@@ -48,7 +48,13 @@
 
           <div class="login-social-link centered">
           <p>or you can sign in via your social network</p>
-          <%= link_to "Facebook", "/auth/facebook", class: "btn btn-facebook", type: "button" %>
+
+          <%= link_to("/auth/facebook") do %>
+            <%= content_tag :button, :type => :button, class: "btn btn-facebook" do %>
+              <i class="fa fa-facebook"></i>
+              Facebook
+            <% end %>
+          <% end %>
               <!-- <button class="btn btn-facebook" type="button" href="/auth/facebook"> Facebook</button> -->
               <button class="btn btn-twitter" type="button"><i class="fa fa-twitter"></i> Twitter</button>
           </div>
