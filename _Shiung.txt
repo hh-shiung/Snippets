@@ -175,3 +175,15 @@ Merged new stuff from singchow.
 Added in /config/secrets.yml to .gitignore and refreshed the cache.
 Tweaked notification errors on dashboard_layout after Facebook login.
 Set redirection of Facebook login error to '/login' from '/register' for UI consistency.
+
+150827
+== Log 17 ==
+Testing SSH key pair setup.
+Succeeded.
+
+150901
+== Log 18 ==
+Choosing a feature to edit.
+TODO: Move the "Create Snippet" button to be aligned with the feedback button.
+TODO: Resolve class addition issue based on user interaction.
+  FIX: Removed deploy.rb of mina from updating. Intend to upload to DO server for interaction.
