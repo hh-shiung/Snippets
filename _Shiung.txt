@@ -184,4 +184,6 @@ Succeeded.
 150901
 == Log 18 ==
 Choosing a feature to edit.
-Move the "Create Snippet" button to be aligned with the feedback button.
+TODO: Move the "Create Snippet" button to be aligned with the feedback button.
+TODO: Resolve class addition issue based on user interaction.
+  FIX: Removed deploy.rb of mina from updating.
