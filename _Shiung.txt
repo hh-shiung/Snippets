@@ -178,4 +178,10 @@ Set redirection of Facebook login error to '/login' from '/register' for UI cons
 
 150827
 == Log 17 ==
-Testing SSH keypair setup.
+Testing SSH key pair setup.
+Succeeded.
+
+150901
+== Log 18 ==
+Choosing a feature to edit.
+Move the "Create Snippet" button to be aligned with the feedback button.
