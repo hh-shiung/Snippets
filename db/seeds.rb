@@ -62,121 +62,119 @@ User.create(username: "lenient",
   end'
 )
 
-#Second snippets
+@masteruser.snippets.create(
+  snippet_title: 'Convert Seconds to Human Readable time (up to days)',
+  snippet_description: 'Pass in seconds and get back the amount of time in human readable format! ie: puts Utils.secondstostring(129) :=> 2 minutes, 9 seconds',
+  snippet_content: 'class Utils
+  def self.seconds_to_string(s)
 
-  @masteruser.snippets.create(
-    snippet_title: 'Convert Seconds to Human Readable time (up to days)',
-    snippet_description: 'Pass in seconds and get back the amount of time in human readable format! ie: puts Utils.secondstostring(129) :=> 2 minutes, 9 seconds',
-    snippet_content: 'class Utils
-    def self.seconds_to_string(s)
+    # d = days, h = hours, m = minutes, s = seconds
+    m = (s / 60).floor
+    s = s % 60
+    h = (m / 60).floor
+    m = m % 60
+    d = (h / 24).floor
+    h = h % 24
 
-      # d = days, h = hours, m = minutes, s = seconds
-      m = (s / 60).floor
-      s = s % 60
-      h = (m / 60).floor
-      m = m % 60
-      d = (h / 24).floor
-      h = h % 24
+    output = "#{s} second#{Utils.pluralize(s)}" if (s > 0)
+    output = "#{m} minute#{Utils.pluralize(m)}, #{s} second#{Utils.pluralize(s)}" if (m > 0)
+    output = "#{h} hour#{Utils.pluralize(h)}, #{m} minute#{Utils.pluralize(m)}, #{s} second#{Utils.pluralize(s)}" if (h > 0)
+    output = "#{d} day#{Utils.pluralize(d)}, #{h} hour#{Utils.pluralize(h)}, #{m} minute#{Utils.pluralize(m)}, #{s} second#{Utils.pluralize(s)}" if (d > 0)
 
-      output = "#{s} second#{Utils.pluralize(s)}" if (s > 0)
-      output = "#{m} minute#{Utils.pluralize(m)}, #{s} second#{Utils.pluralize(s)}" if (m > 0)
-      output = "#{h} hour#{Utils.pluralize(h)}, #{m} minute#{Utils.pluralize(m)}, #{s} second#{Utils.pluralize(s)}" if (h > 0)
-      output = "#{d} day#{Utils.pluralize(d)}, #{h} hour#{Utils.pluralize(h)}, #{m} minute#{Utils.pluralize(m)}, #{s} second#{Utils.pluralize(s)}" if (d > 0)
+    return output
+  end
 
-      return output
-    end
+  def self.pluralize number
+    return "s" unless number == 1
+    return ""
+  end
 
-    def self.pluralize number
-      return "s" unless number == 1
-      return ""
-    end
+  end'
+)
 
+@masteruser.snippets.create(
+  snippet_title: 'Get string between two character',
+  snippet_description: "If you're using Rails and want to make this a global function, drop this into your application_controller and call it as a function. Example: # getstringbetween('hellomyfriendmoto', 'o', 'm') # > myfriend",
+  snippet_content: 'def get_string_between(my_string, start_at, end_at)
+    my_string = " #{my_string}"
+    ini = my_string.index(start_at)
+    return my_string if ini == 0
+    ini += start_at.length
+    length = my_string.index(end_at, ini).to_i - ini
+    my_string[ini,length]
     end'
 )
 
-  @masteruser.snippets.create(
-    snippet_title: 'Get string between two character',
-    snippet_description: "If you're using Rails and want to make this a global function, drop this into your application_controller and call it as a function. Example: # getstringbetween('hellomyfriendmoto', 'o', 'm') # > myfriend",
-    snippet_content: 'def get_string_between(my_string, start_at, end_at)
-      my_string = " #{my_string}"
-      ini = my_string.index(start_at)
-      return my_string if ini == 0
-      ini += start_at.length
-      length = my_string.index(end_at, ini).to_i - ini
-      my_string[ini,length]
-      end'
-)
+@masteruser.snippets.create(
+  snippet_title: 'Ruby: Search Spotify API',
+  snippet_description: "[URL: http://developer.spotify.com/en/metadata-api/overview/] Simple test showing how to make a request to Spotify's API.",
+  snippet_content: '=begin
+    http://developer.spotify.com/en/metadata-api/overview/
 
-  @masteruser.snippets.create(
-    snippet_title: 'Ruby: Search Spotify API',
-    snippet_description: "[URL: http://developer.spotify.com/en/metadata-api/overview/] Simple test showing how to make a request to Spotify's API.",
-    snippet_content: '=begin
-  http://developer.spotify.com/en/metadata-api/overview/
+    Requests: http://ws.spotify.com/service/version/method[.format]?parameters
+    http://ws.spotify.com/search/1/track.json?q=kaizers+orchestra
 
-  Requests: http://ws.spotify.com/service/version/method[.format]?parameters
-  http://ws.spotify.com/search/1/track.json?q=kaizers+orchestra
+    Track Lookup
+    http://ws.spotify.com/lookup/1/.json?uri=spotify:track:6NmXV4o6bmp704aPGyTVVG
 
-  Track Lookup
-  http://ws.spotify.com/lookup/1/.json?uri=spotify:track:6NmXV4o6bmp704aPGyTVVG
+    Artist lookup
+    http://ws.spotify.com/lookup/1/.json?uri=spotify:artist:4YrKBkKSVeqDamzBPWVnSJ
+    http://ws.spotify.com/lookup/1/.json?uri=spotify:artist:4YrKBkKSVeqDamzBPWVnSJ&extras=album
+    http://ws.spotify.com/lookup/1/.json?uri=spotify:artist:4YrKBkKSVeqDamzBPWVnSJ&extras=albumdetail
 
-  Artist lookup
-  http://ws.spotify.com/lookup/1/.json?uri=spotify:artist:4YrKBkKSVeqDamzBPWVnSJ
-  http://ws.spotify.com/lookup/1/.json?uri=spotify:artist:4YrKBkKSVeqDamzBPWVnSJ&extras=album
-  http://ws.spotify.com/lookup/1/.json?uri=spotify:artist:4YrKBkKSVeqDamzBPWVnSJ&extras=albumdetail
+    Album lookup
+    http://ws.spotify.com/lookup/1/.json?uri=spotify:album:6G9fHYDCoyEErUkHrFYfs4
+    http://ws.spotify.com/lookup/1/.json?uri=spotify:album:6G9fHYDCoyEErUkHrFYfs4&extras=track
+    http://ws.spotify.com/lookup/1/.json?uri=spotify:album:6G9fHYDCoyEErUkHrFYfs4&extras=trackdetail
 
-  Album lookup
-  http://ws.spotify.com/lookup/1/.json?uri=spotify:album:6G9fHYDCoyEErUkHrFYfs4
-  http://ws.spotify.com/lookup/1/.json?uri=spotify:album:6G9fHYDCoyEErUkHrFYfs4&extras=track
-  http://ws.spotify.com/lookup/1/.json?uri=spotify:album:6G9fHYDCoyEErUkHrFYfs4&extras=trackdetail
+    Search Example
+    http://ws.spotify.com/search/1/artist?q=Bj%C3%B6rk.
 
-  Search Example
-  http://ws.spotify.com/search/1/artist?q=Bj%C3%B6rk.
+    =end
 
-  =end
+    class SpotifyAPIRequest
+      require "open-uri"
 
-  class SpotifyAPIRequest
-    require "open-uri"
+      def initialize
 
-    def initialize
+      end
 
+      def lookup( keyword )
+        open("http://ws.spotify.com/search/1/track.json?q=" + keyword){
+          |f|
+          #Get the Full response which should be the full HTML
+          @req = f.read
+          #Find the first place where "No match is found", if nothing is found, it will return "nil"
+          puts @req
+
+    =begin
+          @txt = @req.index("No match")
+          puts @txt
+
+          if @txt.nil?
+            puts "Domain " + word + ".com is available"
+          else
+            puts "Domain " + word + ".com is taken"
+          end
+    =end
+        }
+      end
     end
 
-    def lookup( keyword )
-      open("http://ws.spotify.com/search/1/track.json?q=" + keyword){
-        |f|
-        #Get the Full response which should be the full HTML
-        @req = f.read
-        #Find the first place where "No match is found", if nothing is found, it will return "nil"
-        puts @req
-
-  =begin
-        @txt = @req.index("No match")
-        puts @txt
-
-        if @txt.nil?
-          puts "Domain " + word + ".com is available"
-        else
-          puts "Domain " + word + ".com is taken"
-        end
-  =end
-      }
-    end
-  end
-
-  spotify = SpotifyAPIRequest.new
-  spotify.lookup("beethoven")'
+    spotify = SpotifyAPIRequest.new
+    spotify.lookup("beethoven")'
 )
 
-  @masteruser.snippets.create(
-    snippet_title: 'Rescuing From RecordNotUnique error',
-    snippet_description: "Use rescue_from ActiveRecord::RecordNotUnique when DB transaction fail on uniqueness check",
-    snippet_content: 'rescue_from ActiveRecord::RecordNotUnique, :with => :my_rescue_method
+@masteruser.snippets.create(
+  snippet_title: 'Rescuing From RecordNotUnique error',
+  snippet_description: "Use rescue_from ActiveRecord::RecordNotUnique when DB transaction fail on uniqueness check",
+  snippet_content: 'rescue_from ActiveRecord::RecordNotUnique, :with => :my_rescue_method
       ....
     protected
     def my_rescue_method
      ...
     end'
- )
+)
 
 @otheruser = User.find_by(id: 2)
  @otheruser.snippets.create(
