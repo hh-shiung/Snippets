@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 #This will be our master user
 User.create(username: "RoRSnippet",
             first_name: "RoR",
@@ -61,8 +53,8 @@ User.create(username: "lenient",
     Rails.logger.info "Shop #{shop.id} (#{shop.subdomain}) bounced us"
   end'
 )
-
 @masteruser.snippets.create(
+
   snippet_title: 'Convert Seconds to Human Readable time (up to days)',
   snippet_description: 'Pass in seconds and get back the amount of time in human readable format! ie: puts Utils.secondstostring(129) :=> 2 minutes, 9 seconds',
   snippet_content: 'class Utils
