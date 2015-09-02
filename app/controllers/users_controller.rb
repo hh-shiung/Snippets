@@ -182,7 +182,6 @@ class UsersController < ApplicationController
         puts @user
         if @user.save
           session[:current_user_email] = @fbinfo.email
-          # flash[:notice] = "Thank you for registering. Please check your inbox for confirmation email."
         redirect_to "/index"
         else
           puts @user.errors.full_messages
