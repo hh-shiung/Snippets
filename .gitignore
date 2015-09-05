@@ -30,6 +30,3 @@ db/schema.rb
 
 # Ignore application configuration
 /config/application.yml
-/config/secrets.yml
-/config/deploy.rb
-/config/database.yml
