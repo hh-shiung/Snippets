@@ -4,10 +4,3 @@ access_token: <%= ENV["dropbox_access_token"] %>
 access_token_secret:  <%= ENV["dropbox_access_token_secret"] %>
 user_id:  <%= ENV["dropbox_user_id"] %>
 access_type: "app_folder"
-
-# app_key:  gv2poelwwl19nz0
-# app_secret: hwmzo5n3j9l9l5h
-# access_token: bresg9pqvvllnhb2
-# access_token_secret:  8g6fhbfa97zma9n
-# user_id:  437007884
-# access_type: "app_folder"

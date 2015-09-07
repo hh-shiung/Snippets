@@ -10,55 +10,62 @@
   </head>
 
   <body id="login">
-
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
 
 	  <div id="login-page">
 	  	<div class="container">
         <%= form_tag('/index', :class => 'form-login') do |f|%>
-        <h2 class="form-login-heading">sign in now</h2>
+        <h2 class="form-login-heading">Sign In</h2>
         <div class="login-wrap">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<%= email_field_tag 'email', '', {class: 'form-control',:placeholder => "Email"}%>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <%= password_field_tag 'password', '', {class: 'form-control',:placeholder => "Password"}%>
-					<!-- <input id="password" name="password" type="password" class="form-control" placeholder="Password"> -->
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<font color="red"><%= flash[:invaliduser] %></font>
-				</div>
-			</div>
-          <label class="checkbox">
-              <span class="pull-right">
-                  <a data-toggle="modal" href="login.html#forgotpw">Forgot Password?</a>
-              </span>
-          </label>
-          <button class="btn btn-theme btn-block" href="/index" type="submit"><i class="fa fa-lock"></i>SIGN IN</button>
 
-          <hr>
+        <div class="row">
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  					<%= email_field_tag 'email', '', {class: 'form-control',:placeholder => "Email"}%>
+  				</div>
+  			</div>
 
-          <div class="login-social-link centered">
-          <p>or you can sign in via your social network</p>
+        <br>
 
+        <div class="row">
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%= password_field_tag 'password', '', {class: 'form-control',:placeholder => "Password"}%>
+  				</div>
+  			</div>
+
+  			<div class="row">
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  					<font color="red"><%= flash[:invaliduser] %></font>
+  				</div>
+  			</div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <span class="pull-right">
+              <a data-toggle="modal" href="login.html#forgotpw">Forgot your password?</a>
+            </span>
+  				</div>
+  			</div>
+
+        <button class="btn btn-theme btn-block" href="/index" type="submit"><i class="fa fa-lock"></i>SIGN IN</button>
+
+        <hr>
+
+        <div class="login-social-link centered">
+          <p>Or sign in with</p>
           <%= link_to("/auth/facebook") do %>
             <%= content_tag :button, :type => :button, class: "btn btn-facebook" do %>
               <i class="fa fa-facebook"></i>
               Facebook
             <% end %>
           <% end %>
-              <!-- <button class="btn btn-facebook" type="button" href="/auth/facebook"> Facebook</button> -->
-              <button class="btn btn-twitter" type="button"><i class="fa fa-twitter"></i> Twitter</button>
-          </div>
-          <div class="registration">
+
+          <!-- <button class="btn btn-facebook" type="button" href="/auth/facebook"> Facebook</button> -->
+          <button class="btn btn-twitter" type="button"><i class="fa fa-twitter"></i> Twitter</button>
+        </div>
+
+        <div class="registration">
               Don't have an account yet?<br/><br/>
               <!-- <a class="" data-toggle="modal" href="login.html#registeruser"> -->
               <a class="" href="/register" >
@@ -67,127 +74,128 @@
           </div>
         </div>
         <% end %>
-		      <!-- <form class="form-login" action="/index">
-		        <h2 class="form-login-heading">sign in now</h2>
-		        <div class="login-wrap">
 
-                <input class="form-control" id="User ID" name="email" type="email" value="email@example.com" />
-		            <br>
-		            <input type="password" class="form-control" placeholder="Password">
-		            <label class="checkbox">
-		                <span class="pull-right">
-		                    <a data-toggle="modal" href="login.html#myModal">Forgot Password?</a>
-		                </span>
-		            </label>
-		            <button class="btn btn-theme btn-block" href="/index" type="submit"><i class="fa fa-lock"></i>SIGN IN</button>
+        <!-- <form class="form-login" action="/index">
+        <h2 class="form-login-heading">sign in now</h2>
+        <div class="login-wrap">
 
-                <hr>
+        <input class="form-control" id="User ID" name="email" type="email" value="email@example.com" />
+        <br>
+        <input type="password" class="form-control" placeholder="Password">
+        <label class="checkbox">
+            <span class="pull-right">
+                <a data-toggle="modal" href="login.html#myModal">Forgot Password?</a>
+            </span>
+        </label>
+        <button class="btn btn-theme btn-block" href="/index" type="submit"><i class="fa fa-lock"></i>SIGN IN</button>
 
-		            <div class="login-social-link centered">
-		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-		            </div>
-		            <div class="registration">
-		                Don't have an account yet?<br/>
-		                <a class="" href="/register">
-		                    Create an account
-		                </a>
-		            </div>
+        <hr>
 
-		        </div> -->
+        <div class="login-social-link centered">
+        <p>or you can sign in via your social network</p>
+            <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
+            <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
+        </div>
+        <div class="registration">
+            Don't have an account yet?<br/>
+            <a class="" href="/register">
+                Create an account
+            </a>
+        </div>
+        </div> -->
 
-		          <!-- Modal -->
-		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="forgotpw" class="modal fade">
-		              <div class="modal-dialog">
-		                  <div class="modal-content">
-		                      <div class="modal-header">
-		                          <h4 class="modal-title">Forgot Password ?</h4>
-		                      </div>
-		                      <div class="modal-body">
-		                      	<div class="row">
-		                      		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-										<p>Enter your e-mail address below to reset your password.</p>
-										<input id="forgot_mail" type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-		                        	</div>
-								</div>
-		                        <br>
-		                        <div class="row">
-		                        	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		                       			<div id="error_msg"></div>
-		                       		</div>
-		                    	</div>
+        <!-- Modal -->
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="forgotpw" class="modal fade">
+	         <div class="modal-dialog">
+             <div class="modal-content">
 
-		                      <div class="modal-footer">
-		                          <button data-dismiss="modal" class="btn btn-default close_modal" type="button">Cancel</button>
-		                          <button class="btn btn-theme forgot_pw" type="button">Submit</button>
-		                      </div>
-		                  </div>
-		              </div>
-		          </div>
-	  			</div>
-		          <!-- modal -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Forgot Password ?</h4>
+               </div>
 
-		          <!-- Modal -->
-		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="registeruser" class="modal fade">
-		              <div class="modal-dialog">
-		                  <div class="modal-content">
-		                      <div class="modal-header">
-		                          <h4 class="modal-title">Sign Up</h4>
-		                      </div>
+               <div class="modal-body">
+                 <div class="row">
+                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                     <p>Enter your e-mail address below to reset your password.</p>
+                     <input id="forgot_mail" type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                   </div>
+                 </div>
 
-							<%= form_tag("/getinput", method: "post") do %>
-		                      <div class="modal-body">
-		                      	<div class="row">
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										Enter your e-mail address
-										<input type="text" id="email" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-										<div id="email_msg"></div>
-									</div>
+                 <br>
 
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										Enter your Password
-										<input type="password" id="reg_password" name="reg_password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix">
-										<div id="password_msg"></div>
-									</div>
-		                        </div>
+                 <div class="row">
+                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                     <div id="error_msg"></div>
+                   </div>
+                 </div>
 
-		                        <div class="row">
+                 <div class="modal-footer">
+                   <button data-dismiss="modal" class="btn btn-default close_modal" type="button">Cancel</button>
+                   <button class="btn btn-theme forgot_pw" type="button">Submit</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!-- modal -->
 
-		                        	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-		                        		Enter your first name
-										<input type="text" id="first_name" name="first_name" placeholder="First Name" autocomplete="off" class="form-control placeholder-no-fix">
-									</div>
+         <!-- Modal -->
+         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="registeruser" class="modal fade">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h4 class="modal-title">Sign Up</h4>
+               </div>
 
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										Enter your last name
-										<input type="text" id="last_name" name="last_name" placeholder="Last Name" autocomplete="off" class="form-control placeholder-no-fix">
-		                      		</div>
-		                      	</div>
-		                      </div>
+               <%= form_tag("/getinput", method: "post") do %>
+               <div class="modal-body">
+                 <div class="row">
+                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     Enter your e-mail address
+                     <input type="text" id="email" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                     <div id="email_msg"></div>
+                   </div>
 
+                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     Enter your Password
+                     <input type="password" id="reg_password" name="reg_password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix">
+                     <div id="password_msg"></div>
+                   </div>
+                 </div>
 
-		                      <div class="modal-footer">
-		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                          <button class="btn btn-theme" type="submit">Submit</button>
-		                      </div>
-		                      <% end %>
-		                  </div>
-		              </div>
-		          </div>
-		          <!-- modal -->
+                 <div class="row">
+                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     Enter your first name
+                     <input type="text" id="first_name" name="first_name" placeholder="First Name" autocomplete="off" class="form-control placeholder-no-fix">
+                   </div>
+                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     Enter your last name
+                     <input type="text" id="last_name" name="last_name" placeholder="Last Name" autocomplete="off" class="form-control placeholder-no-fix">
+                   </div>
+                 </div>
+               </div>
+
+               <div class="modal-footer">
+                 <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                 <button class="btn btn-theme" type="submit">Submit</button>
+               </div>
+               <% end %>
+             </div>
+           </div>
+         </div>
+         <!-- modal -->
 
 					<!-- Modal -->
 					<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="underconstruction" class="modal fade">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title">Social Media Login</h4>
-								</div>
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Social Media Login</h4>
+                </div>
 								<div class="modal-body">
-									<div class="row">
-										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-											<font color="black">Under Construction</font>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <font color="black">Under Construction</font>
 										</div>
 									</div>
 								</div>
@@ -195,13 +203,12 @@
 						</div>
 		  			</div>
 					<!-- modal -->
-
-		      <!-- </form> -->
-
+          <!-- </form> -->
 	  	</div>
 	  </div>
+
     <script>
-        $.backstretch("<%= image_path("img/login-bg.jpg") %>", {speed: 500});
+      $.backstretch("<%= image_path("img/login-bg.jpg") %>", {speed: 500});
 		// $.ajax({
 		// 	type: 'post',
 		// 	data: { xx : "TEST" } ,
@@ -250,7 +257,5 @@
 			});
 		});
     </script>
-
-
   </body>
 </html>
