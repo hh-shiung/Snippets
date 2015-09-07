@@ -5,7 +5,7 @@ User.create(username: "RoRSnippet",
             email: "ror@rorsnippet.com",
             password: "rorsnippet",
             avatar: Faker::Avatar.image
-                 )
+            )
 
 #### PLEASE ADD IN YOUR OWN ACCOUNT ###############
 User.create(username: "Ching[B.A.D]",
@@ -14,7 +14,7 @@ User.create(username: "Ching[B.A.D]",
             email: "sing.chow.ching@outlook.com",
             password: "12345678",
             avatar: Faker::Avatar.image
-                 )
+            )
 
 User.create(username: "lenient",
             first_name: "Hsien Shiung",
@@ -53,8 +53,8 @@ User.create(username: "lenient",
     Rails.logger.info "Shop #{shop.id} (#{shop.subdomain}) bounced us"
   end'
 )
-@masteruser.snippets.create(
 
+@masteruser.snippets.create(
   snippet_title: 'Convert Seconds to Human Readable time (up to days)',
   snippet_description: 'Pass in seconds and get back the amount of time in human readable format! ie: puts Utils.secondstostring(129) :=> 2 minutes, 9 seconds',
   snippet_content: 'class Utils
@@ -184,25 +184,25 @@ User.create(username: "lenient",
   puts '5276 4400 6542 1319'.creditcard_type"
 )
 
-@otheruser.snippets.create(
-  snippet_title: 'Display Image in Link_to',
-  snippet_description: "Displays a image inside link_to instead of text.",
-  snippet_content: '<%= link_to image_tag("search.gif", :border=>0), :action => "show", :id => user %>'
-)
+  @otheruser.snippets.create(
+    snippet_title: 'Display Image in Link_to',
+    snippet_description: "Displays a image inside link_to instead of text.",
+    snippet_content: '<%= link_to image_tag("search.gif", :border=>0), :action => "show", :id => user %>'
+  )
 
 @shiunguser = User.find_by(email: "shiung@gmail.com")
-@shiunguser.snippets.create(
-  snippet_title: 'FizzBuzz',
-  snippet_description: 'Counts from 1 to 100 while changing numbers with conditions to Fizz, Buzz, or FizzBuzz!',
-  snippet_content: '1.upto(100) do |i|
-    if i % 5 == 0 and i % 3 == 0
-      puts "FizzBuzz"
-    elsif i % 5 == 0
-      puts "Buzz"
-    elsif i % 3 == 0
-      puts "Fizz"
-    else
-      puts i
-    end
-  end'
-)
+  @shiunguser.snippets.create(
+    snippet_title: 'FizzBuzz',
+    snippet_description: 'Counts from 1 to 100 while changing numbers with conditions to Fizz, Buzz, or FizzBuzz!',
+    snippet_content: '1.upto(100) do |i|
+      if i % 5 == 0 and i % 3 == 0
+        puts "FizzBuzz"
+      elsif i % 5 == 0
+        puts "Buzz"
+      elsif i % 3 == 0
+        puts "Fizz"
+      else
+        puts i
+      end
+    end'
+  )
