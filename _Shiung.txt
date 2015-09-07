@@ -197,3 +197,13 @@ Critical files that were removed from git:
 * /config/deploy.rb
 * /config/database.yml
 Uploaded them at Github Gists, pm me for links!
+
+150907
+== Log 20 ==
+Finally finished setup of application on another computer. figaro and application.yml were the troublesome bit.
+Stumbled upon index-assume on Git.
+Plan to use it for all configuration files in the future.
+
+TODO: Setup mina for DO usage.
+  TODO: Write mina configuration in GitHub Gists.
+TODO: Resolve class addition issue based on user interaction.
