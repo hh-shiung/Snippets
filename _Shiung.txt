@@ -207,3 +207,8 @@ Plan to use it for all configuration files in the future.
 TODO: Setup mina for DO usage.
   TODO: Write mina configuration in GitHub Gists.
 TODO: Resolve class addition issue based on user interaction.
+
+150910
+== Log 21 ==
+Settled for a default configuration backup with gitignore file.
+Learnt hard lesson that switching workstations is never easy. 
