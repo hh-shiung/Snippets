@@ -211,4 +211,9 @@ TODO: Resolve class addition issue based on user interaction.
 150910
 == Log 21 ==
 Settled for a default configuration backup with gitignore file.
-Learnt hard lesson that switching workstations is never easy. 
+Learnt hard lesson that switching workstations is never easy.
+
+150914
+== Log 22 ==
+Nothing happened after a few days. Things have already started to slip from my head. How can I keep relevant?
+Setting up environment variables? Or continue with the JS-class modification thing?
